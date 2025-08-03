@@ -39,7 +39,7 @@ const Register = () => {
                         <button type='submit' className='bg-sky-500  cursor-pointer w-full py-2 rounded-lg text-xl text-white font-semibold'>Register</button>
                     </div>
                     <div className='mt-3'>
-                        <p className='text-white font-semibold text-lg '>Already Have an Account? <Link to='/register'><span className='border-b-1 border-b-amber-500 text-[#2e0ae2d1] ml-2'>Signin</span></Link></p>
+                        <p className='text-white font-semibold text-lg '>Already Have an Account? <Link to='/login'><span className='border-b-1 border-b-amber-500 text-[#2e0ae2d1] ml-2'>Signin</span></Link></p>
                     </div>
                 </form>
 
