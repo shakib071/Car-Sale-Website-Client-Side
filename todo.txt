@@ -27,21 +27,27 @@ Ensure the server works perfectly on production without errors.
 Your live link should function properly, with no errors on landing or navigation.
 
 Layout and Page Structure
-Navigation Bar
-A beautiful header with the website name + logo.
+
+1.Navigation Bar
+
 Conditional rendering for navigation menus:
 Non-logged-in users see: Home | Available Cars | Log-in
 Logged-in users see: Home | Available Cars | Add Car | My Cars | My Bookings | Logout
-Footer
+
+2.Footer
 Include a website logo, name, copyright information, and social media links.
-Error Page
+
+3.Error Page
 A 404 page with an image or gif  and a "Back to Home" button that redirects the user to the homepage.
 
 
 
 Pages & Features
+
 Home Page Structure
-1. Banner Section
+
+
+4.Banner Section
 Content:
 Motivational Heading: Display an inspiring heading such as "Drive Your Dreams Today!" or "Your Next Car Awaits You."
 Call-to-Action (Button): A prominently styled button, e.g., “View Available Cars”, redirects users to the "Available Cars" page.
@@ -49,7 +55,8 @@ Design:
 Full-width background image or video showcasing premium or exotic cars.
 Layer the content (heading and button) over the background with a slight shadow for readability.
 
-2. Why Choose Us?
+
+5. Why Choose Us?
 Purpose: Highlight your platform's unique selling points to build trust and draw user interest.
 Content:
 Use icons or visuals to represent 3-4 points such as:
@@ -60,7 +67,8 @@ Customer Support: 24/7 assistance for all your queries.
 Design:
 A grid layout with an icon and a short description for each point.
 
-3. Recent Listings
+
+6. Recent Listings
 Content: Showcase 6-8 of the latest cars added to your platform using a card layout. Each card should include:
 Car Image: A high-quality thumbnail or photo of the car.
 Model: The car model, e.g., Toyota Camry 2023.
@@ -72,9 +80,12 @@ Design:
 Cards arranged in a grid layout (3 per row).
 Add a hover effect: Zoom in slightly or display a shadow around the card.
 
-4. Extra Sections (With Animations):
+
+7. Extra Sections (With Animations):
 Make a section related to your website theme
-B. Special Offers
+
+
+8. Special Offers
 Purpose: Highlight discounts or deals to attract users.
 Content:
 Create banners/cards featuring promotions, e.g.:
@@ -84,7 +95,8 @@ Include a "Learn More" or "Book Now" button.
 Animations:
 Offer cards slide in from the side or bounce slightly on hover.
 
-Add Car Page (Private)
+
+9. Add Car Page (Private)
 A private route where authenticated users can add cars with fields:
 Car Model
 Daily Rental Price
@@ -96,7 +108,9 @@ bookingCount(default 0)
 Image url 
 Location
 Save user details, date, and default booking status into the database.
-My Cars Page (Private)
+
+
+10. My Cars Page (Private)
 A private route where authenticated users can manage their added cars.
 Display all cars added by the user in a tabular format, with columns for:
 Car Image
@@ -123,12 +137,16 @@ Prompts a confirmation modal before proceeding.
 Upon confirmation, remove the car from the database.
 Updates the table in real-time and notifies the user of the deletion.
 If no cars are added, display a message prompting the user to add a car with a link to the "Add Car" page.
-Available Cars Page
+
+
+11. Available Cars Page
 Display all available cars in a grid or card format.
 Add a toggle button for switching between grid and list views.
 Cards should show essential details with a "Book Now" button leading to the car details page.
 Include Sorting   options based on Date Added (Newest First / Oldest First)  or Price (Lowest First / Highest First)
-Car Details Page
+
+
+12. Car Details Page
 Detailed car information:
 Model
 Price Per Day
@@ -137,32 +155,36 @@ Features
 Images
 Description
 "Book Now" button opens a confirmation modal summarizing booking details.
+
+
 Login and Registration System
-Login Page:
 
 
+13. Login Page:
 Allow users to log in with Email/Password or via Google authentication using Firebase.
 Redirect users to the homepage upon successful login.
 Display relevant error messages when authentication fails.
 Provide a link to redirect users to the Registration page.
-Registration Page:
 
 
+14. Registration Page:
 Allow users to register with fields:
 Name
 Email
 Password
 Photo URL
 Validate inputs and display appropriate error messages.
-Social Login:
 
 
+15. Social Login:
 Enable Google Sign-In functionality for easy access.
-Private Route Access:
 
 
+16. Private Route Access:
 Protect pages like "Add Car," "My Cars," "My Bookings," and "Manage Cars" by ensuring only authenticated users can access them.
-My Bookings (Private)
+
+
+17. My Bookings (Private)
 This section will provide users with a detailed view of all the bookings they have made, offering functionality to view, modify, or cancel bookings in a user-friendly format.
 Core Features
 Tabular Layout:
@@ -193,7 +215,8 @@ On click, open a modal with a date picker allowing the user to select a new star
 Include options to Confirm or Cancel the action.
 Once confirmed, update the table with the modified booking details and save the changes.
 
-Challenges
+
+18. Challenges
 Search Functionality: Add search functionality based on the car model, brand, or location on the available Cars Page. 
 JWT Authentication Requirement: Implement JWT-based authentication to secure private routes and verify users. Store the generated token in an HTTP-only cookie after successful login and remove it during logout. Include middleware to validate tokens for access to protected APIs, ensuring session integrity.
 Note: Custom method or Firebase which you want to use is upto you.
@@ -204,26 +227,9 @@ Enable users to sort cars by:
 Date Added (Newest First / Oldest First)  or Price (Lowest First / Highest First)
 
 
+19. Optional Requirements:
 
-Submission Checklist
-Live Site URL
-Client-side GitHub Repository
-Server-side GitHub Repository
-
-Optional Requirements:
-
- Data Visualization: Use chart.js or recharts on my Booking Page . Show charts based on car Daily Rental Price
+Data Visualization: Use chart.js or recharts on my Booking Page . Show charts based on car Daily Rental Price
 Layout Toggles: Add buttons for toggling the layout style (grid/list) on the "Available Cars" page.
 Explore and implement Tanstack query mutations in your api.
 Add one extra feature of your own. This will help you in the future to differentiate your project from others.
-
-
-Some Guidelines:
-Do not waste much time on the website idea. Just spend 15-20 minutes deciding, find a sample website, and start working on it.
-Do not waste much time finding the right image. You can always start with a simple idea. Make the website, and then add different images.
-Don't look at the overall task list. Just take one task at a time and do it. Once it's done, pick the next task. If you get stuck on a particular task, move on to the next task.
-Stay calm, think before coding, and work sequentially. You will make it.
-Be strategic about the electricity issue.
-Use ChatGPT to generate JSON data. You can use ChatGPT for Other purposes as well.
-
-
