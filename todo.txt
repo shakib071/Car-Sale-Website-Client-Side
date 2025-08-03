@@ -34,8 +34,6 @@ Conditional rendering for navigation menus:
 Non-logged-in users see: Home | Available Cars | Log-in
 Logged-in users see: Home | Available Cars | Add Car | My Cars | My Bookings | Logout
 
-2.Footer
-Include a website logo, name, copyright information, and social media links.
 
 3.Error Page
 A 404 page with an image or gif  and a "Back to Home" button that redirects the user to the homepage.
