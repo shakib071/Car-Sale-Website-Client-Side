@@ -26,16 +26,6 @@ Deployment Guidelines
 Ensure the server works perfectly on production without errors.
 Your live link should function properly, with no errors on landing or navigation.
 
-Layout and Page Structure
-
-1.Navigation Bar
-
-Conditional rendering for navigation menus:
-Non-logged-in users see: Home | Available Cars | Log-in
-Logged-in users see: Home | Available Cars | Add Car | My Cars | My Bookings | Logout
-
-
-Pages & Features
 
 Home Page Structure
 
@@ -148,29 +138,6 @@ Features
 Images
 Description
 "Book Now" button opens a confirmation modal summarizing booking details.
-
-
-Login and Registration System
-
-
-13. Login Page:
-Allow users to log in with Email/Password or via Google authentication using Firebase.
-Redirect users to the homepage upon successful login.
-Display relevant error messages when authentication fails.
-Provide a link to redirect users to the Registration page.
-
-
-14. Registration Page:
-Allow users to register with fields:
-Name
-Email
-Password
-Photo URL
-Validate inputs and display appropriate error messages.
-
-
-15. Social Login:
-Enable Google Sign-In functionality for easy access.
 
 
 16. Private Route Access:

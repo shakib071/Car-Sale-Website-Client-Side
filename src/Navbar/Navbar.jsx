@@ -9,12 +9,12 @@ import { AuthContext } from '../AuthProvider/AuthContext';
 
 const Navbar = () => {
 
-    const {logOut} = use(AuthContext);
+    const {logOut,user} = use(AuthContext);
     
     const handleLogout= () =>{
         logOut()
         .then(()=>{
-            
+
         })
         .catch((error)=>{
             console.log(error);
@@ -38,17 +38,28 @@ const Navbar = () => {
                 <div className='flex gap-2 sm:gap-6 md:gap-3 lg:gap-6 items-center text-[11px] sm:text-lg md:text-xl lg:text-2xl xl:text-[29px] 2xl:text-[33px]'>
                     <NavLink to='/'><p className='font-semibold '>Home</p></NavLink>
                     <NavLink><p className='font-semibold'>Available Cars</p></NavLink>
-                    <NavLink><p className='font-semibold'>Add Car</p></NavLink>
-                    <NavLink><p className='font-semibold'>My Cars</p></NavLink>
-                    <NavLink><p className='font-semibold'>My Bookings</p></NavLink>
+                    {
+                        user && 
+                        <>
+                            <NavLink><p className='font-semibold'>Add Car</p></NavLink>
+                            <NavLink><p className='font-semibold'>My Cars</p></NavLink>
+                            <NavLink><p className='font-semibold'>My Bookings</p></NavLink>
+                        </>
+                    }
+                    
 
                     
                 </div>
                 <div className='flex  gap-2 items-center md:gap-3 lg:gap-5 text-[11px] sm:text-lg md:text-xl lg:text-2xl xl:text-[29px] 2xl:text-[33px]'>
                    
-                      
-                    <NavLink to='/login'><p className='font-semibold'>Login</p></NavLink>
-                    <NavLink><p onClick={handleLogout} className='font-semibold'>Logout</p></NavLink>
+                    {
+                        !user && <NavLink to='/login'><p className='font-semibold'>Login</p></NavLink>
+                    }
+                    
+                    {
+                        user && <NavLink><p onClick={handleLogout} className='font-semibold'>Logout</p></NavLink>
+                    }
+                    
 
                 </div>
             </div>
