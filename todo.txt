@@ -35,11 +35,6 @@ Non-logged-in users see: Home | Available Cars | Log-in
 Logged-in users see: Home | Available Cars | Add Car | My Cars | My Bookings | Logout
 
 
-3.Error Page
-A 404 page with an image or gif  and a "Back to Home" button that redirects the user to the homepage.
-
-
-
 Pages & Features
 
 Home Page Structure

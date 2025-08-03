@@ -36,7 +36,7 @@ const Navbar = () => {
                 <div className='flex  gap-2 items-center md:gap-3 lg:gap-5 text-[11px] sm:text-lg md:text-xl lg:text-2xl xl:text-[29px] 2xl:text-[33px]'>
                    
                       
-                    <NavLink><p className='font-semibold'>Login</p></NavLink>
+                    <NavLink to='/login'><p className='font-semibold'>Login</p></NavLink>
                     {/* <NavLink><p className='font-semibold'>Logout</p></NavLink> */}
 
                 </div>
