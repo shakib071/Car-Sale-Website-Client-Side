@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { use } from 'react';
 import logoImg from '../assets/carLogo.avif'
 import { NavLink } from 'react-router';
+import { AuthContext } from '../AuthProvider/AuthContext';
 
 
 
@@ -8,7 +9,17 @@ import { NavLink } from 'react-router';
 
 const Navbar = () => {
 
- 
+    const {logOut} = use(AuthContext);
+    
+    const handleLogout= () =>{
+        logOut()
+        .then(()=>{
+            
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
 
 
     return (
@@ -37,7 +48,7 @@ const Navbar = () => {
                    
                       
                     <NavLink to='/login'><p className='font-semibold'>Login</p></NavLink>
-                    {/* <NavLink><p className='font-semibold'>Logout</p></NavLink> */}
+                    <NavLink><p onClick={handleLogout} className='font-semibold'>Logout</p></NavLink>
 
                 </div>
             </div>

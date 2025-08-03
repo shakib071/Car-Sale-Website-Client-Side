@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Footer/Footer';
 import { AuthContext } from '../AuthProvider/AuthContext';
+import { ToastContainer } from 'react-toastify';
 
 
 const Root = () => {
@@ -10,6 +11,7 @@ const Root = () => {
     console.log('user is',user);
     return (
         <div className='flex bg-[#bab8b85c] flex-col min-h-screen'>
+            <ToastContainer position="top-right" autoClose={2000} />
             <Navbar></Navbar>
             <div className='flex-1'>
                 <Outlet></Outlet>
