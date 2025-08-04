@@ -34,16 +34,6 @@ Home Page Structure
 Make a section related to your website theme
 
 
-8. Special Offers
-Purpose: Highlight discounts or deals to attract users.
-Content:
-Create banners/cards featuring promotions, e.g.:
-“Get 15% off for weekend rentals!”
-“Luxury cars at $99/day this holiday season!”
-Include a "Learn More" or "Book Now" button.
-Animations:
-Offer cards slide in from the side or bounce slightly on hover.
-
 
 9. Add Car Page (Private)
 A private route where authenticated users can add cars with fields:

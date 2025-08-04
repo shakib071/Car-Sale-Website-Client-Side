@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import Banner from '../Banner/Banner';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 import RecentListing from '../RecentListing/RecentListing';
-import Test from '../TEST/test';
+import SpecialOffer from '../SpecialOffer/SpecialOffer';
 import Promo from '../Promo/Promo';
 import Promo2 from '../Promo/Promo2';
 
@@ -24,6 +24,7 @@ const Home = () => {
                 <Promo></Promo>
                 <Promo2></Promo2>
             </div>
+            <SpecialOffer></SpecialOffer>
             
         </div>
     );

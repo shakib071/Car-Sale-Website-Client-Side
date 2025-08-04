@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co.com/B92tk3q/pngtree-bmw-clipart-bmw-m4-car-cartoon-white-background-vector-png-image-6798095.png",
+    "title": "BMW M4 Competition",
+    "price_per_day": 160,
+    "offer": "20%off for 3+ days"
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co.com/q3h9fZyZ/Audi-A6-PNG-Image-Background.png",
+    "title": "Audi A6 S-Line",
+    "price_per_day": 140,
+    "offer": "First day free"
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co.com/SXW3YjmS/b5e9333bdcc56554fc4ec3ef63e59732.png",
+    "title": "Mercedes CLA 250",
+    "price_per_day": 150,
+    "offer": "10%off this weekend"
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co.com/TMMcdc7D/20250422114517-Group-1321318758-2025-04-22-T114458-297.png",
+    "title": "Tesla Model 3",
+    "price_per_day": 180,
+    "offer": "Free charging included"
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co.com/VpxVGQqZ/a4a0aac8ef99defb30c04f9ca9845fc8.png",
+    "title": "Range Rover Evoque",
+    "price_per_day": 200,
+    "offer": "Buy 5 days, get 2 free"
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co.com/dFSdD1S/c4f444c15d52eb473e94141a5ef0abb3.png",
+    "title": "Lexus RX 350",
+    "price_per_day": 170,
+    "offer": "15%off all week"
+  }
+]
