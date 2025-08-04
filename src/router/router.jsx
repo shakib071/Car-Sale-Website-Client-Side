@@ -6,6 +6,11 @@ import Error from "../Error/Error";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import PrivateRouter from '../PrivateRouter/PrivateRouter';
+import AvailableCars from '../AvailableCars/AvailableCars';
+import MyCars from "../MyCars/MyCars";
+import AddCar from "../AddCar/AddCar";
+import MyBooking from "../MyBooking/MyBooking";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +28,22 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register></Register>,
+      },
+      {
+        path: 'available-cars',
+        element: <PrivateRouter><AvailableCars></AvailableCars></PrivateRouter>,
+      },
+      {
+        path: 'my-cars',
+        element: <PrivateRouter><MyCars></MyCars></PrivateRouter>
+      },
+      {
+        path: 'add-car',
+        element: <PrivateRouter><AddCar></AddCar></PrivateRouter>
+      },
+      {
+        path: 'my-booking',
+        element: <PrivateRouter><MyBooking></MyBooking></PrivateRouter>
       }
     ]
   },

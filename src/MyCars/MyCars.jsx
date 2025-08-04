@@ -2,8 +2,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
 
-const Home = () => {
-
+const MyCars = () => {
     const {loading} = use(AuthContext);
     if(loading){
         return <Loading></Loading>;
@@ -11,9 +10,9 @@ const Home = () => {
 
     return (
         <div>
-            <p>Home Page</p>
+            <p>This is my Cars page</p>
         </div>
     );
 };
 
-export default Home;
+export default MyCars;
