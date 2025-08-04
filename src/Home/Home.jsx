@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
 
@@ -11,7 +12,7 @@ const Home = () => {
 
     return (
         <div>
-            <p>Home Page</p>
+            <Banner></Banner>
         </div>
     );
 };
