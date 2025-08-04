@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "car_image": "https://i.ibb.co.com/SXW3YjmS/b5e9333bdcc56554fc4ec3ef63e59732.png",
+    "model": "Mercedes-Benz S-Class 2025",
+    "daily_price": "$180/day",
+    "availability": "Available",
+    "booking_count": 14,
+    "date_posted": "2025-08-02"
+  },
+  {
+    "id": 2,
+    "car_image": "https://i.ibb.co.com/99QsZj9x/3b0bafdd-76c4-4985-a44b-87f60da0d9d8.webp",
+    "model": "BMW i7 2025",
+    "daily_price": "$200/day",
+    "availability": "Available",
+    "booking_count": 10,
+    "date_posted": "2025-08-03"
+  },
+  {
+    "id": 3,
+    "car_image": "https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp",
+    "model": "Audi A8 2024",
+    "daily_price": "$160/day",
+    "availability": "Unavailable",
+    "booking_count": 22,
+    "date_posted": "2025-08-01"
+  },
+  {
+    "id": 4,
+    "car_image": "https://i.ibb.co.com/TMMcdc7D/20250422114517-Group-1321318758-2025-04-22-T114458-297.png",
+    "model": "Tesla Model S Plaid 2025",
+    "daily_price": "$190/day",
+    "availability": "Available",
+    "booking_count": 17,
+    "date_posted": "2025-08-02"
+  },
+  {
+    "id": 5,
+    "car_image": "https://i.ibb.co.com/dFSdD1S/c4f444c15d52eb473e94141a5ef0abb3.png",
+    "model": "Lexus LS 500 2024",
+    "daily_price": "$150/day",
+    "availability": "Available",
+    "booking_count": 12,
+    "date_posted": "2025-08-03"
+  },
+  {
+    "id": 6,
+    "car_image": "https://i.ibb.co.com/4gNJfV3q/Porsche-Panamera-Download-Free-PNG.png",
+    "model": "Porsche Panamera 2025",
+    "daily_price": "$210/day",
+    "availability": "Available",
+    "booking_count": 8,
+    "date_posted": "2025-08-04"
+  },
+  {
+    "id": 7,
+    "car_image": "https://i.ibb.co.com/r26CYZJn/ce1db1df779c6f6e4aa62a6dc74d8186.png",
+    "model": "Jaguar XJ 2024",
+    "daily_price": "$170/day",
+    "availability": "Unavailable",
+    "booking_count": 19,
+    "date_posted": "2025-08-01"
+  },
+  {
+    "id": 8,
+    "car_image": "https://i.ibb.co.com/ccwmSmMv/genesis-ww-g90-colors-08-glossy-tasman-blue-small.png",
+    "model": "Genesis G90 2025",
+    "daily_price": "$160/day",
+    "availability": "Available",
+    "booking_count": 11,
+    "date_posted": "2025-08-04"
+  },
+  {
+    "id": 9,
+    "car_image": "https://i.ibb.co.com/ks0V3ky3/bf6a0a22-95de-4132-935c-f69eef9b8287.webp",
+    "model": "Cadillac CT6 2025",
+    "daily_price": "$155/day",
+    "availability": "Available",
+    "booking_count": 6,
+    "date_posted": "2025-08-03"
+  },
+  {
+    "id": 10,
+    "car_image": "https://i.ibb.co.com/QF512KnV/4940d1a5-85b1-4d2d-9c2a-a7c347f590d0-Rolls-Royce-Ghost-Melanite.png",
+    "model": "Rolls-Royce Ghost 2025",
+    "daily_price": "$500/day",
+    "availability": "Available",
+    "booking_count": 4,
+    "date_posted": "2025-08-02"
+  }
+]

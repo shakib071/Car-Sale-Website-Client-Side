@@ -1,0 +1,54 @@
+import React, { useEffect, useState } from 'react';
+import Image from '../assets/bannerCarImage.png'
+import { TiTick } from "react-icons/ti";
+import { RxCrossCircled } from "react-icons/rx";
+
+const RecentListing = () => {
+
+    const [listData,setListData] = useState([]);
+
+    useEffect(()=> {
+        fetch('./recentListing.json')
+        .then(res => res.json())
+        .then(data => setListData(data))
+    },[]);
+
+    return (
+        <div className='mt-15'>
+            <p className='text-4xl text-center font-bold'>Recent Listing</p>
+
+            <div className='mt-13 grid grid-cols-2 gap-7 px-5'>
+
+            {
+                listData.map(list => (
+                    <div key={list.id} className=' bg-gradient-to-r from-[#2df0ac] to-[#218bb992] rounded-2xl shadow-2xl p-10'>
+
+                        <div>
+                            <div>
+                                <img className='w-100 ' src={list.car_image} alt="car image" />
+                            </div>
+                            <div className='text-xl flex flex-col gap-1 pl-4'>
+                                <p ><span className='font-semibold'>Model: </span>{list.model}</p>
+                                <p ><span className=' font-semibold'>Rent: </span> {list.daily_price}</p>
+                                <div className='flex items-center gap-2'>
+                                    <p className=' font-semibold'>Availability:</p>
+                                    <p className='text-2xl'> {list.availability=="Available" ? <TiTick className='text-[#e5ed05]' /> : <RxCrossCircled className='text-red-700'/>} </p>
+                                </div>
+                                
+                                <p><span className=' font-semibold'>Bookings: </span>14</p>
+                                <p><span className=' font-semibold'>Date Posted: </span> 2025-08-02</p>
+                            </div>
+                        </div>
+
+                    </div>
+                ))
+            }
+
+            </div>
+
+            
+        </div>
+    );
+};
+
+export default RecentListing;

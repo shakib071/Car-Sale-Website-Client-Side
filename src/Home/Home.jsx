@@ -3,6 +3,7 @@ import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
 import Banner from '../Banner/Banner';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
+import RecentListing from '../RecentListing/RecentListing';
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <WhyChooseUs></WhyChooseUs>
+            <RecentListing></RecentListing>
         </div>
     );
 };

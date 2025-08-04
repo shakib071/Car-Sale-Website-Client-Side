@@ -30,18 +30,6 @@ Your live link should function properly, with no errors on landing or navigation
 Home Page Structure
 
 
-5. Why Choose Us?
-Purpose: Highlight your platform's unique selling points to build trust and draw user interest.
-Content:
-Use icons or visuals to represent 3-4 points such as:
-Wide Variety of Cars: From budget-friendly options to luxury vehicles.
-Affordable Prices: Competitive daily rates you can count on.
-Easy Booking Process: Seamlessly book your ride in just a few clicks.
-Customer Support: 24/7 assistance for all your queries.
-Design:
-A grid layout with an icon and a short description for each point.
-
-
 6. Recent Listings
 Content: Showcase 6-8 of the latest cars added to your platform using a card layout. Each card should include:
 Car Image: A high-quality thumbnail or photo of the car.
