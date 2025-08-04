@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Image from '../assets/bannerCarImage.png'
 import { TiTick } from "react-icons/ti";
 import { RxCrossCircled } from "react-icons/rx";
 
@@ -21,7 +20,7 @@ const RecentListing = () => {
 
             {
                 listData.map(list => (
-                    <div key={list.id} className=' bg-gradient-to-r from-[#2df0ac] to-[#218bb992] rounded-2xl shadow-2xl p-10'>
+                    <div key={list.id} className='transition-transform duration-300 transform hover:scale-105  shadow-[0_4px_20px_rgba(36,227,97,0.4)] hover:shadow-[0_4px_30px_rgba(210,173,73,0.8)]  bg-gradient-to-r from-[#2df0ac] to-[#218bb992] rounded-2xl  p-10'>
 
                         <div>
                             <div>

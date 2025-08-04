@@ -30,19 +30,6 @@ Your live link should function properly, with no errors on landing or navigation
 Home Page Structure
 
 
-6. Recent Listings
-Content: Showcase 6-8 of the latest cars added to your platform using a card layout. Each card should include:
-Car Image: A high-quality thumbnail or photo of the car.
-Model: The car model, e.g., Toyota Camry 2023.
-Daily Price: The rental price per day, e.g., $45/day.
-Availability: A badge or text indicating if the car is available for immediate booking.
-Booking_count
-Date Posted: e.g., Added 2 days ago.
-Design:
-Cards arranged in a grid layout (3 per row).
-Add a hover effect: Zoom in slightly or display a shadow around the card.
-
-
 7. Extra Sections (With Animations):
 Make a section related to your website theme
 
