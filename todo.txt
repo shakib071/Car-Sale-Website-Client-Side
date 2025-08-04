@@ -30,15 +30,6 @@ Your live link should function properly, with no errors on landing or navigation
 Home Page Structure
 
 
-4.Banner Section
-Content:
-Motivational Heading: Display an inspiring heading such as "Drive Your Dreams Today!" or "Your Next Car Awaits You."
-Call-to-Action (Button): A prominently styled button, e.g., “View Available Cars”, redirects users to the "Available Cars" page.
-Design:
-Full-width background image or video showcasing premium or exotic cars.
-Layer the content (heading and button) over the background with a slight shadow for readability.
-
-
 5. Why Choose Us?
 Purpose: Highlight your platform's unique selling points to build trust and draw user interest.
 Content:
