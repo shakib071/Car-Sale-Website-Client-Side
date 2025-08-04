@@ -1,6 +1,6 @@
-import React, { use } from 'react';
+import React, { Suspense, use } from 'react';
 import logoImg from '../assets/carLogo.avif'
-import { NavLink } from 'react-router';
+import { Navigate, NavLink } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
 
@@ -12,9 +12,7 @@ const Navbar = () => {
 
     const {logOut,user,loading} = use(AuthContext);
     
-    if(loading){
-        return <Loading></Loading>;
-    }
+   
 
     const handleLogout= () =>{
         logOut()
@@ -26,8 +24,13 @@ const Navbar = () => {
         })
     }
 
+    if(loading){
+        return <Loading></Loading>;
+    }
+
 
     return (
+        <Suspense fallback={<Loading></Loading>}>
         <div className='bg-white border-b-2  py-1 md:py-0 sticky top-0 z-50 rounded-lg shadow-xl'>
 
             <div className='w-[97%] sm:w-[98%] xl:w-[90%] 2xl:w-[90%]  mx-auto flex justify-between items-center'>
@@ -44,12 +47,12 @@ const Navbar = () => {
                     <NavLink to='/'><p className='font-semibold '>Home</p></NavLink>
                     <NavLink to='available-cars'><p className='font-semibold'>Available Cars</p></NavLink>
                     {
-                        user && 
+                       !loading && user &&
                         <>
                             <NavLink to='add-car'><p className='font-semibold'>Add Car</p></NavLink>
                             <NavLink to='my-cars'><p className='font-semibold'>My Cars</p></NavLink>
                             <NavLink to='my-booking'><p className='font-semibold'>My Bookings</p></NavLink>
-                        </>
+                        </> 
                     }
                     
 
@@ -70,6 +73,7 @@ const Navbar = () => {
             </div>
 
         </div>
+        </Suspense>
     );
 };
 

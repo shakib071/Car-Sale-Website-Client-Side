@@ -11,15 +11,18 @@ import AvailableCars from '../AvailableCars/AvailableCars';
 import MyCars from "../MyCars/MyCars";
 import AddCar from "../AddCar/AddCar";
 import MyBooking from "../MyBooking/MyBooking";
+import Loading from "../Loading/Loading";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    HydrateFallback: <Loading></Loading>,
     children: [
       {
         index: true ,
         element: <Home></Home>,
+        HydrateFallback: <Loading></Loading>,
       },
       {
         path: 'login',
@@ -28,22 +31,27 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register></Register>,
+        HydrateFallback: <Loading></Loading>,
       },
       {
         path: 'available-cars',
-        element: <PrivateRouter><AvailableCars></AvailableCars></PrivateRouter>,
+        element: <AvailableCars></AvailableCars>,
+        HydrateFallback: <Loading></Loading>,
       },
       {
         path: 'my-cars',
-        element: <PrivateRouter><MyCars></MyCars></PrivateRouter>
+        element: <PrivateRouter><MyCars></MyCars></PrivateRouter>,
+        HydrateFallback: <Loading></Loading>,
       },
       {
         path: 'add-car',
-        element: <PrivateRouter><AddCar></AddCar></PrivateRouter>
+        element: <PrivateRouter><AddCar></AddCar></PrivateRouter>,
+        HydrateFallback: <Loading></Loading>,
       },
       {
         path: 'my-booking',
-        element: <PrivateRouter><MyBooking></MyBooking></PrivateRouter>
+        element: <PrivateRouter><MyBooking></MyBooking></PrivateRouter>,
+        HydrateFallback: <Loading></Loading>,
       }
     ]
   },

@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 
 const AuthProvider = ({children}) => {
 
-    const [loading , setLoading] = useState(false);
+    const [loading , setLoading] = useState(true);
     const [user , setUser] = useState(null);
 
     const provider = new GoogleAuthProvider();
@@ -32,13 +32,16 @@ const AuthProvider = ({children}) => {
     }
 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
     useEffect(()=> {
+        setLoading(true);
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setLoading(false);
+            
             setUser(currentUser);
+            setLoading(false);
         })
         return () => {
             unsubscribe();
@@ -59,7 +62,7 @@ const AuthProvider = ({children}) => {
     }
 
     return (
-        <AuthContext value={AuthData}>{children}</AuthContext>
+        <AuthContext.Provider value={AuthData}>{children}</AuthContext.Provider>
     );
 };
 
