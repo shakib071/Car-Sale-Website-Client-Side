@@ -27,25 +27,7 @@ Ensure the server works perfectly on production without errors.
 Your live link should function properly, with no errors on landing or navigation.
 
 
-Home Page Structure
-
-
-7. Extra Sections (With Animations):
-Make a section related to your website theme
-
-
-
 9. Add Car Page (Private)
-A private route where authenticated users can add cars with fields:
-Car Model
-Daily Rental Price
-Availability
-Vehicle Registration Number
-Features (e.g., GPS, AC, etc.)
-Description
-bookingCount(default 0)
-Image url 
-Location
 Save user details, date, and default booking status into the database.
 
 

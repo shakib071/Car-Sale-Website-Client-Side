@@ -90,19 +90,19 @@ const Register = () => {
                 <form onSubmit={handleRegister} className='' >
                     <div className='flex mt-4 flex-col'>
                         <label className='text-white font-semibold text-xl'>Name</label>
-                        <input className='input w-[300px] input-accent' name='name' placeholder='Your Name' type="text" />
+                        <input className='input w-[300px] input-accent' name='name' placeholder='Your Name' type="text" required/>
                     </div>  
                     <div className='flex mt-4 flex-col'>
                         <label className='text-white font-semibold text-xl'>Email</label>
-                        <input className='input w-[300px] input-accent' name='email' placeholder='Email' type="email" />
+                        <input className='input w-[300px] input-accent' name='email' placeholder='Email' type="email" required/>
                     </div> 
                     <div className='flex mt-4 flex-col'>
                         <label className='text-white font-semibold text-xl'>Password</label>
-                        <input className='input w-[300px] input-accent' name='password' placeholder='Password' type="password" />
+                        <input className='input w-[300px] input-accent' name='password' placeholder='Password' type="password" required/>
                     </div> 
                     <div className='flex mt-4 flex-col'>
                         <label className='text-white font-semibold text-xl'>Photo URL</label>
-                        <input className='input w-[300px] input-accent' name='photo' placeholder='Photo URL' type="text" />
+                        <input className='input w-[300px] input-accent' name='photo' placeholder='Photo URL' type="text" required/>
                     </div>
                     <div onClick={handleGoogleSignin} className='flex justify-center cursor-pointer items-center mt-4 bg-amber-500 py-2 rounded-4xl'>
                         <p className=''><img className='w-15' src={googleLogo} alt="google" /></p>
