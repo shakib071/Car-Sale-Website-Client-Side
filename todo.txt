@@ -32,7 +32,7 @@ Save user details, date, and default booking status into the database.
 
 
 10. My Cars Page (Private)
-A private route where authenticated users can manage their added cars.
+
 Display all cars added by the user in a tabular format, with columns for:
 Car Image
 Car Model
