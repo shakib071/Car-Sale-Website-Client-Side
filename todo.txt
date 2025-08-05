@@ -1,30 +1,18 @@
 Assignment Category: Assignment-11-assignment_category_15
 
-📽️📽️Assignment Explanation Video📽️📽️ 
-Job Task
-Dear Candidate, We are pleased to inform you that you have successfully passed the first round of the selection process! Your application and skills have impressed us, and we are excited to move forward with you in the next stages. This project is designed to assess your skills, creativity, and problem-solving abilities. It will help us understand how you approach challenges and your ability to deliver high-quality solutions.
-
 Project Overview
 We are seeking a proficient Car Rental System Developer to lead the creation of a feature-rich, user-centric car rental platform. Your role involves designing and implementing responsive frontend and robust backend systems. The platform will enable seamless car bookings, user authentication, and efficient management of car inventory. Proficiency in frontend technologies like HTML, CSS, JavaScript, React.js, and backend frameworks like Node.js, Express.js, and MongoDB is required. Familiarity with Firebase Authentication, JWT implementation, and advanced filtering techniques will be beneficial. Join us to innovate car rentals through technology and user experience!
 Updates: 0 [Any updates will be mentioned here]
 
 Let’s Understand the Website Theme
-You have to create a Car Rental System. On this platform:
 Users can Add, Update, and Delete Cars listed for rental.
 Users can Search and Book Cars based on their availability.
 The system provides real-time updates on car availability and booking statuses.
 Ensure the Following for Full Marks
-Include at least 15 meaningful commits on the client side and 8 meaningful commits on the server side with descriptive messages.
 Include a README.md file with the project name, purpose, live URL, key features, and npm packages used.
 Make the website fully responsive on mobile, tablet, and desktop.
-Secure Firebase configuration keys and MongoDB credentials using environment variables.
 Design with an eye-pleasing color contrast and proper alignment. Avoid cluttered designs.
 Deploy properly; no CORS/404/504 errors should appear.
-Ensure private routes do not redirect logged-in users to the login page on reload.
-
-Deployment Guidelines
-Ensure the server works perfectly on production without errors.
-Your live link should function properly, with no errors on landing or navigation.
 
 
 9. Add Car Page (Private)
@@ -33,14 +21,6 @@ Save user details, date, and default booking status into the database.
 
 10. My Cars Page (Private)
 
-Display all cars added by the user in a tabular format, with columns for:
-Car Image
-Car Model
-Daily Rental Price
-bookingCount
-Availability
-Date Added
-Include the following actions in each table row:
 Update Button:
 Triggers a modal with the following editable fields:
 Car Model
@@ -61,9 +41,7 @@ If no cars are added, display a message prompting the user to add a car with a l
 
 
 11. Available Cars Page
-Display all available cars in a grid or card format.
-Add a toggle button for switching between grid and list views.
-Cards should show essential details with a "Book Now" button leading to the car details page.
+
 Include Sorting   options based on Date Added (Newest First / Oldest First)  or Price (Lowest First / Highest First)
 
 

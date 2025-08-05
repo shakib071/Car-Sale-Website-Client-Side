@@ -12,6 +12,7 @@ import MyCars from "../MyCars/MyCars";
 import AddCar from "../AddCar/AddCar";
 import MyBooking from "../MyBooking/MyBooking";
 import Loading from "../Loading/Loading";
+import CarDetails from "../CarDetails/CarDetails";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         path: 'my-booking',
         element: <PrivateRouter><MyBooking></MyBooking></PrivateRouter>,
         HydrateFallback: <Loading></Loading>,
+      },
+      {
+        path: 'available-cars/car-details',
+        element: <PrivateRouter><CarDetails></CarDetails></PrivateRouter>
       }
     ]
   },

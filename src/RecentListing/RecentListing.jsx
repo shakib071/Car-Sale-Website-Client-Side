@@ -34,8 +34,8 @@ const RecentListing = () => {
                                     <p className='text-2xl'> {list.availability=="Available" ? <TiTick className='text-[#e5ed05]' /> : <RxCrossCircled className='text-red-700'/>} </p>
                                 </div>
                                 
-                                <p><span className=' font-semibold'>Bookings: </span>14</p>
-                                <p><span className=' font-semibold'>Date Posted: </span> 2025-08-02</p>
+                                <p><span className=' font-semibold'>Bookings: </span>{list.booking_count}</p>
+                                <p><span className=' font-semibold'>Date Posted: </span> {list.date_posted}</p>
                             </div>
                         </div>
 
