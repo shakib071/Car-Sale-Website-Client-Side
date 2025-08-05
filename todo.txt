@@ -49,13 +49,7 @@ Include Sorting   options based on Date Added (Newest First / Oldest First)  or 
 
 
 17. My Bookings (Private)
-This section will provide users with a detailed view of all the bookings they have made, offering functionality to view, modify, or cancel bookings in a user-friendly format.
-Core Features
-Tabular Layout:
-A responsive and scrollable table displaying all bookings in a clean format.
-Columns Included:
-Car Image: A small thumbnail of the booked car for easy identification.
-Car Model: The car's make and model, e.g., Toyota Corolla 2023.
+
 Booking Date: The date and time the car was reserved (formatted as DD-MM-YYYY HH:MM).
 Total Price: The cost of the entire booking period, including taxes/fees.
 Booking Status: Clearly display whether the booking is confirmed, pending, or canceled.
