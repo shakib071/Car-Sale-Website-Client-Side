@@ -41,23 +41,11 @@ If no cars are added, display a message prompting the user to add a car with a l
 
 
 11. Available Cars Page
-
 Include Sorting   options based on Date Added (Newest First / Oldest First)  or Price (Lowest First / Highest First)
 
 
 12. Car Details Page
-Detailed car information:
-Model
-Price Per Day
-Availability
-Features
-Images
-Description
 "Book Now" button opens a confirmation modal summarizing booking details.
-
-
-16. Private Route Access:
-Protect pages like "Add Car," "My Cars," "My Bookings," and "Manage Cars" by ensuring only authenticated users can access them.
 
 
 17. My Bookings (Private)
