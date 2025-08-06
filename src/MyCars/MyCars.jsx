@@ -1,12 +1,18 @@
 import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
+import { useLoaderData } from 'react-router';
 
 const MyCars = () => {
+    const carData = useLoaderData();
     const {loading} = use(AuthContext);
+    
+    console.log('car data is' ,carData);
     if(loading){
         return <Loading></Loading>;
     }
+
+    
 
     return (
         <div>
@@ -30,81 +36,29 @@ const MyCars = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>$160/day</td>
-                            <td className='border-2 text-xl font-semibold'>22</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>
-                                </div>
-                            </td>
-                        </tr>    
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>$160/day</td>
-                            <td className='border-2 text-xl font-semibold'>22</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>
-                                </div>
-                            </td>
-                        </tr>    
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>$160/day</td>
-                            <td className='border-2 text-xl font-semibold'>22</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>
-                                </div>
-                            </td>
-                        </tr>   
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>$160/day</td>
-                            <td className='border-2 text-xl font-semibold'>22</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>
-                                </div>
-                            </td>
-                        </tr>   
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>$160/day</td>
-                            <td className='border-2 text-xl font-semibold'>22</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>
-                                </div>
-                            </td>
-                        </tr>  
+
+                        {
+                            carData.map(car => (
+                                <tr key={car._id} className='text-center '>
+                                    
+                                    <td className='border-2'><img src={car.carDetails.image} alt="car image" /></td>
+                                    <td className='border-2 text-xl font-semibold'>{car.carDetails.carModel}</td>
+                                    <td className='border-2 text-xl font-semibold'>${car.carDetails.dailyRentalPrice}/day</td>
+                                    <td className='border-2 text-xl font-semibold'>{car.carDetails.bookingCount}</td>
+                                    <td className='border-2 text-xl font-semibold'>{car.carDetails.available}</td>
+                                    <td className='border-2 text-xl font-semibold'>{car.carDetails.addedDate.split("T")[0]}</td>
+                                    <td className='border-2 text-xl font-semibold'>
+                                        <div className='flex flex-col gap-2'>
+                                            <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
+                                            <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>
+                                        </div>
+                                    </td>
+                                </tr> 
+                            ))
+                        }
+
+                        
+                  
 
                     
                        

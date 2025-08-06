@@ -42,6 +42,7 @@ const router = createBrowserRouter([
       {
         path: 'my-cars',
         element: <PrivateRouter><MyCars></MyCars></PrivateRouter>,
+        loader: async () => await fetch('http://localhost:5000/myCars') ,
         HydrateFallback: <Loading></Loading>,
       },
       {

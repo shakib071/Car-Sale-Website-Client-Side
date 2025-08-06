@@ -5,6 +5,9 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 
+// const today = new Date();
+// console.log(today);
+
 const AddCar = () => {
     const {loading,user} = use(AuthContext);
     const [availability, setAvailability] = useState('Available'); 
@@ -15,7 +18,7 @@ const AddCar = () => {
 
     const handleChange = (e) => {
         setAvailability(e.target.value);
-           
+        
     };
 
     const addCarDataToDatabase = (carData) => {
@@ -50,6 +53,7 @@ const AddCar = () => {
         const bookingCount = form.bookingCount.value;
         const image = form.Image.value;
         const location = form.Location.value;
+         const addedDate = new Date();
         // console.log(carModel,dailyRentalPrice,available,vehicleRegNum,features,description,bookingCount,image,location);
         const carDetails = {
             carModel,
@@ -60,7 +64,8 @@ const AddCar = () => {
             description,
             bookingCount,
             image,
-            location
+            location,
+            addedDate
         }
         const userWhoAdded = {
             name : user.displayName,
