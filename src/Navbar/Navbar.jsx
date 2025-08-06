@@ -50,7 +50,7 @@ const Navbar = () => {
                        !loading && user &&
                         <>
                             <NavLink to='add-car'><p className='font-semibold'>Add Car</p></NavLink>
-                            <NavLink to='my-cars'><p className='font-semibold'>My Cars</p></NavLink>
+                            <NavLink to={`my-cars/${user.uid}`}><p className='font-semibold'>My Cars</p></NavLink>
                             <NavLink to='my-booking'><p className='font-semibold'>My Bookings</p></NavLink>
                         </> 
                     }

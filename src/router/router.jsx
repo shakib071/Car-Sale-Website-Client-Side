@@ -32,28 +32,29 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register></Register>,
-        HydrateFallback: <Loading></Loading>,
+        HydrateFallback: Loading,
       },
       {
         path: 'available-cars',
         element: <AvailableCars></AvailableCars>,
-        HydrateFallback: <Loading></Loading>,
+        loader: async () => await fetch('https://car-sale-web-server.vercel.app/allCars') ,
+        HydrateFallback: Loading,
       },
       {
-        path: 'my-cars',
+        path: 'my-cars/:id',
         element: <PrivateRouter><MyCars></MyCars></PrivateRouter>,
-        loader: async () => await fetch('https://car-sale-web-server.vercel.app/myCars') ,
-        HydrateFallback: <Loading></Loading>,
+        loader: async ({params}) => await fetch(`https://car-sale-web-server.vercel.app/myCars/${params.id}`),
+        HydrateFallback: Loading,
       },
       {
         path: 'add-car',
         element: <PrivateRouter><AddCar></AddCar></PrivateRouter>,
-        HydrateFallback: <Loading></Loading>,
+        HydrateFallback: Loading,
       },
       {
         path: 'my-booking',
         element: <PrivateRouter><MyBooking></MyBooking></PrivateRouter>,
-        HydrateFallback: <Loading></Loading>,
+        HydrateFallback: Loading,
       },
       {
         path: 'available-cars/car-details',

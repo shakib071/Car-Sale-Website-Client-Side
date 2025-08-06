@@ -35,8 +35,9 @@ const AddCar = () => {
                     timer: 1500
                     });
 
-                navigate('/my-cars');
+                navigate(`/my-cars/${user.uid}`);
             }
+            
         })
         .catch(error => console.log(error));
     }
@@ -45,12 +46,12 @@ const AddCar = () => {
         e.preventDefault();
         const form = e.target ;
         const carModel = form.carModel.value;
-        const dailyRentalPrice = form.DailyRentalPrice.value;
+        const dailyRentalPrice = parseInt(form.DailyRentalPrice.value);
         const available = availability;
         const vehicleRegNum = form.VehicleRegNum.value;
         const features = form.Features.value;
         const description = form.Description.value;
-        const bookingCount = form.bookingCount.value;
+        const bookingCount = parseInt(form.bookingCount.value);
         const image = form.Image.value;
         const location = form.Location.value;
          const addedDate = new Date();
