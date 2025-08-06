@@ -27,7 +27,7 @@ const AddCar = () => {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "Your Car has been added",
                     showConfirmButton: false,
                     timer: 1500
                     });
