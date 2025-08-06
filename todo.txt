@@ -15,7 +15,7 @@ Deploy properly; no CORS/404/504 errors should appear.
 
 
 10. My Cars Page (Private)
-Display all cars added by the user in a tabular format, with columns for
+
 Update Button:
 Triggers a modal with the following editable fields:
 Car Model

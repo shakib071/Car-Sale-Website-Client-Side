@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: 'my-cars',
         element: <PrivateRouter><MyCars></MyCars></PrivateRouter>,
-        loader: async () => await fetch('http://localhost:5000/myCars') ,
+        loader: async () => await fetch('https://car-sale-web-server.vercel.app/myCars') ,
         HydrateFallback: <Loading></Loading>,
       },
       {
