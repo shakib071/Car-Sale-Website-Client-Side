@@ -11,7 +11,7 @@ const MyBooking = () => {
         <div>
             <p className='mt-10 text-4xl font-bold text-center'>My Booking</p>
 
-            <div className='mt-10 w-[95%] mx-auto'>
+            <div className='mt-10 w-[98%] mx-auto'>
 
                 <div className="overflow-x-auto">
 
@@ -24,7 +24,7 @@ const MyBooking = () => {
                             <th className='border-2 border-[#ea2b3e]'>Booking Date</th>
                             <th className='border-2 border-[#ea2b3e]'>Total Price</th>
                             <th className='border-2 border-[#ea2b3e]'>Booking Status</th>
-                            <th className='border-2 border-[#ea2b3e]'>Date Added</th>
+                            <th className='border-2 border-[#ea2b3e]'>Booking Date</th>
                             <th className='border-2 border-[#ea2b3e]'>Action</th>
                         </tr>
                         </thead>

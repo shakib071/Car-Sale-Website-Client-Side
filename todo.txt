@@ -2,7 +2,6 @@ Assignment Category: Assignment-11-assignment_category_15
 
 Project Overview
 We are seeking a proficient Car Rental System Developer to lead the creation of a feature-rich, user-centric car rental platform. Your role involves designing and implementing responsive frontend and robust backend systems. The platform will enable seamless car bookings, user authentication, and efficient management of car inventory. Proficiency in frontend technologies like HTML, CSS, JavaScript, React.js, and backend frameworks like Node.js, Express.js, and MongoDB is required. Familiarity with Firebase Authentication, JWT implementation, and advanced filtering techniques will be beneficial. Join us to innovate car rentals through technology and user experience!
-Updates: 0 [Any updates will be mentioned here]
 
 Let’s Understand the Website Theme
 Users can Add, Update, and Delete Cars listed for rental.
@@ -15,12 +14,8 @@ Design with an eye-pleasing color contrast and proper alignment. Avoid cluttered
 Deploy properly; no CORS/404/504 errors should appear.
 
 
-9. Add Car Page (Private)
-Save user details, date, and default booking status into the database.
-
-
 10. My Cars Page (Private)
-
+Display all cars added by the user in a tabular format, with columns for
 Update Button:
 Triggers a modal with the following editable fields:
 Car Model
@@ -49,7 +44,13 @@ Include Sorting   options based on Date Added (Newest First / Oldest First)  or 
 
 
 17. My Bookings (Private)
-
+This section will provide users with a detailed view of all the bookings they have made, offering functionality to view, modify, or cancel bookings in a user-friendly format.
+Core Features
+Tabular Layout:
+A responsive and scrollable table displaying all bookings in a clean format.
+Columns Included:
+Car Image: A small thumbnail of the booked car for easy identification.
+Car Model: The car's make and model, e.g., Toyota Corolla 2023.
 Booking Date: The date and time the car was reserved (formatted as DD-MM-YYYY HH:MM).
 Total Price: The cost of the entire booking period, including taxes/fees.
 Booking Status: Clearly display whether the booking is confirmed, pending, or canceled.

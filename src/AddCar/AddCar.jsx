@@ -1,15 +1,80 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const AddCar = () => {
-    const {loading} = use(AuthContext);
+    const {loading,user} = use(AuthContext);
+    const [availability, setAvailability] = useState('Available'); 
+    const navigate = useNavigate();
     if(loading){
         return <Loading></Loading>;
     }
 
+    const handleChange = (e) => {
+        setAvailability(e.target.value);
+           
+    };
+
+    const addCarDataToDatabase = (carData) => {
+        console.log(carData);
+
+        axios.post('http://localhost:5000/addCar',carData)
+        .then(res => {
+            if(res.data.insertedId){
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+
+                navigate('/my-cars');
+            }
+        })
+        .catch(error => console.log(error));
+    }
+
     const handleAddCarForm = (e) => {
         e.preventDefault();
+        const form = e.target ;
+        const carModel = form.carModel.value;
+        const dailyRentalPrice = form.DailyRentalPrice.value;
+        const available = availability;
+        const vehicleRegNum = form.VehicleRegNum.value;
+        const features = form.Features.value;
+        const description = form.Description.value;
+        const bookingCount = form.bookingCount.value;
+        const image = form.Image.value;
+        const location = form.Location.value;
+        // console.log(carModel,dailyRentalPrice,available,vehicleRegNum,features,description,bookingCount,image,location);
+        const carDetails = {
+            carModel,
+            dailyRentalPrice,
+            available,
+            vehicleRegNum,
+            features,
+            description,
+            bookingCount,
+            image,
+            location
+        }
+        const userWhoAdded = {
+            name : user.displayName,
+            email : user.email,
+            photo : user.photoURL,
+            uid : user.uid
+        }
+        const addedCarData = {
+            carDetails,
+            userWhoAdded
+        }
+        console.log(addedCarData);
+        addCarDataToDatabase(addedCarData);
+        form.reset();
     }
 
     return (
@@ -26,18 +91,19 @@ const AddCar = () => {
                     </div> 
                     <div className='flex mt-4 flex-col'>
                         <label className='text-white font-semibold text-xl'>Daily Rental Price</label>
-                        <input className='input w-[500px] input-accent' name='DailyRentalPrice' placeholder='Daily Rental Price' type="text" required/>
+                        <input className='input w-[500px] input-accent' name='DailyRentalPrice' placeholder='Daily Rental Price' type="number" required/>
                     </div> 
-                  
+
                     <div className='mt-5'>
                         <label className='text-white font-semibold text-xl'>Availability</label>
-                        <div className="flex mt-2  items-center gap-6">
-                            
+                        <div className="flex mt-2 items-center gap-6">
                             <label className="flex items-center gap-2 cursor-pointer">
                                 <input
                                 type="radio"
-                                name="Available"
+                                name="availability"
                                 value="Available"
+                                checked={availability === "Available"}
+                                onChange={handleChange}
                                 className="radio radio-info bg-[#ffffff]"
                                 />
                                 <p className='text-lg text-white'>Available</p>
@@ -46,8 +112,10 @@ const AddCar = () => {
                             <label className="flex items-center gap-2 cursor-pointer">
                                 <input
                                 type="radio"
-                                name="Unavailable"
+                                name="availability"
                                 value="Unavailable"
+                                checked={availability === "Unavailable"}
+                                onChange={handleChange}
                                 className="radio radio-info bg-[#ffffff]"
                                 />
                                 <p className='text-lg text-white'>Unavailable</p>
