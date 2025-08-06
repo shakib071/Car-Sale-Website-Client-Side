@@ -1,9 +1,12 @@
 import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
+import { useLoaderData } from 'react-router';
 
 const MyBooking = () => {
     const {loading} = use(AuthContext);
+    const myBookingData = useLoaderData();
+    console.log('booking data ',myBookingData);
     if(loading){
         return <Loading></Loading>;
     }
@@ -24,60 +27,31 @@ const MyBooking = () => {
                             <th className='border-2 border-[#ea2b3e]'>Booking Date</th>
                             <th className='border-2 border-[#ea2b3e]'>Total Price</th>
                             <th className='border-2 border-[#ea2b3e]'>Booking Status</th>
-                            <th className='border-2 border-[#ea2b3e]'>Booking Date</th>
                             <th className='border-2 border-[#ea2b3e]'>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-       
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>2200</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Modify</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Cancel</p>
-                                </div>
-                            </td>
-                        </tr>  
-                        
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>2200</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Modify</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Cancel</p>
-                                </div>
-                            </td>
-                        </tr>  
-                        
-                        <tr className='text-center '>
-                            
-                            <td className='border-2'><img src="https://i.ibb.co.com/RkY8TgGD/667a2432-08b2-4039-9629-e436af619078.webp" alt="car image" /></td>
-                            <td className='border-2 text-xl font-semibold'>Audi A8 2024</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>2200</td>
-                            <td className='border-2 text-xl font-semibold'>Available</td>
-                            <td className='border-2 text-xl font-semibold'>2025-08-01</td>
-                            <td className='border-2 text-xl font-semibold'>
-                                <div className='flex flex-col gap-2'>
-                                    <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Modify</p>
-                                    <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Cancel</p>
-                                </div>
-                            </td>
-                        </tr>  
 
+                        {
+                            myBookingData.map(book => (
+                                <tr key={book._id} className='text-center '>
+                                    
+                                    <td className='border-2'><img src={book.carDetails.image} alt="car image" /></td>
+                                    <td className='border-2 text-xl font-semibold'>{book.carDetails.carModel}</td>
+                                    <td className='border-2 text-xl font-semibold'>{book.carDetails.addedDate.split('T')[0]} at {book.carDetails.addedDate.split('T')[1].split('.')[0]}</td>
+                                    <td className='border-2 text-xl font-semibold'>{Math.round(book.carDetails.dailyRentalPrice*1.2)} <br /> <span className='text-[12px] text-[#0000009b]'>with taxes</span></td>
+                                    <td className='border-2 text-xl font-semibold'>{book.carDetails.available}</td>
+                                    <td className='border-2 text-xl font-semibold'>
+                                        <div className='flex flex-col gap-2'>
+                                            <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Modify</p>
+                                            <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Cancel</p>
+                                        </div>
+                                    </td>
+                                </tr> 
+                            ))
+                        }
+       
+                         
                     
                        
                        

@@ -18,12 +18,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    HydrateFallback: <Loading></Loading>,
+    HydrateFallback: Loading,
     children: [
       {
         index: true ,
         element: <Home></Home>,
-        HydrateFallback: <Loading></Loading>,
+        HydrateFallback: Loading,
       },
       {
         path: 'login',
@@ -52,13 +52,16 @@ const router = createBrowserRouter([
         HydrateFallback: Loading,
       },
       {
-        path: 'my-booking',
+        path: 'my-booking/:id',
+        loader: async ({params}) => await fetch(`https://car-sale-web-server.vercel.app/bookings/${params.id}`),
         element: <PrivateRouter><MyBooking></MyBooking></PrivateRouter>,
         HydrateFallback: Loading,
       },
       {
-        path: 'available-cars/car-details',
-        element: <PrivateRouter><CarDetails></CarDetails></PrivateRouter>
+        path: 'available-cars/car-details/:id',
+        loader: async ({params}) => await fetch(`https://car-sale-web-server.vercel.app/car-details/${params.id}`),
+        element: <PrivateRouter><CarDetails></CarDetails></PrivateRouter>,
+        HydrateFallback: Loading,
       }
     ]
   },

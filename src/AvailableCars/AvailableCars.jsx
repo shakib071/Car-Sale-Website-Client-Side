@@ -78,7 +78,7 @@ const AvailableCars = () => {
                     {
                         allCars.map(car => (
                             <div key={car._id} className='transition-transform duration-300 transform hover:scale-105  shadow-[0_4px_20px_rgba(36,227,97,0.4)] hover:shadow-[0_4px_30px_rgba(210,173,73,0.8)]  bg-gradient-to-r from-[#61d90bb1] to-[#218bb992] rounded-2xl  p-10'>
-                        
+                                
                                 <div>
                                     <div>
                                         <img className='w-160 h-80 ' src={car.carDetails.image} alt="car image" />
@@ -93,7 +93,7 @@ const AvailableCars = () => {
                                         
                                         <p><span className=' font-semibold'>Bookings: </span>{car.carDetails.bookingCount}</p>
                                         <p><span className=' font-semibold'>Date Posted: </span> {car.carDetails.addedDate.split("T")[0]}</p>
-                                        <Link to='car-details'><p className=' text-2xl font-bold btn rounded-xl mt-4'>Book Now</p></Link>
+                                        <Link to={`car-details/${car._id}`}><p className=' text-2xl font-bold btn rounded-xl mt-4'>Book Now</p></Link>
                                     </div>
                                 </div>
                         

@@ -35,24 +35,9 @@ Updates the table in real-time and notifies the user of the deletion.
 If no cars are added, display a message prompting the user to add a car with a link to the "Add Car" page.
 
 
-11. Available Cars Page
-Include Sorting   options based on Date Added (Newest First / Oldest First)  or Price (Lowest First / Highest First)
-
-
-12. Car Details Page
-"Book Now" button opens a confirmation modal summarizing booking details.
-
-
 17. My Bookings (Private)
-This section will provide users with a detailed view of all the bookings they have made, offering functionality to view, modify, or cancel bookings in a user-friendly format.
+
 Core Features
-Tabular Layout:
-A responsive and scrollable table displaying all bookings in a clean format.
-Columns Included:
-Car Image: A small thumbnail of the booked car for easy identification.
-Car Model: The car's make and model, e.g., Toyota Corolla 2023.
-Booking Date: The date and time the car was reserved (formatted as DD-MM-YYYY HH:MM).
-Total Price: The cost of the entire booking period, including taxes/fees.
 Booking Status: Clearly display whether the booking is confirmed, pending, or canceled.
 Actions: Buttons to modify the booking date or cancel the booking.
 
