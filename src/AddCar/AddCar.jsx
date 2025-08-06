@@ -21,7 +21,7 @@ const AddCar = () => {
     const addCarDataToDatabase = (carData) => {
         console.log(carData);
 
-        axios.post('http://localhost:5000/addCar',carData)
+        axios.post('https://car-sale-web-server.vercel.app/addCar',carData)
         .then(res => {
             if(res.data.insertedId){
                 Swal.fire({
@@ -74,7 +74,7 @@ const AddCar = () => {
         }
         console.log(addedCarData);
         addCarDataToDatabase(addedCarData);
-        form.reset();
+        // form.reset();
     }
 
     return (
