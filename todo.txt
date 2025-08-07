@@ -16,15 +16,6 @@ Deploy properly; no CORS/404/504 errors should appear.
 
 10. My Cars Page (Private)
 
-Update Button:
-
-On form submission, validate the input and save changes to the database.
-Notify the user of successful updates via a modal or toast notification.
-
-Delete Button:
-Prompts a confirmation modal before proceeding.
-Upon confirmation, remove the car from the database.
-Updates the table in real-time and notifies the user of the deletion.
 If no cars are added, display a message prompting the user to add a car with a link to the "Add Car" page.
 
 
