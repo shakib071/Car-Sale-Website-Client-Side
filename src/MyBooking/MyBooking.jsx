@@ -156,7 +156,7 @@ const MyBooking = () => {
                                     
                                     <td className='border-2'><img src={book.carDetails.image} alt="car image" /></td>
                                     <td className='border-2 text-xl font-semibold'>{book.carDetails.carModel}</td>
-                                    <td className='border-2 text-xl font-semibold'>{book.carDetails.addedDate.split('T')[0]} at {(parseInt(book.carDetails.addedDate.split('T')[1].split('.')[0].split(':')[0])+6)%24}:{book.carDetails.addedDate.split('T')[1].split('.')[0].split(':')[1]}:{book.carDetails.addedDate.split('T')[1].split('.')[0].split(':')[2]}</td>
+                                    <td className='border-2 text-xl font-semibold'>{book.carDetails.addedDate}</td>
                                     <td className='border-2 text-xl font-semibold'>{Math.round(book.carDetails.dailyRentalPrice*1.2)} <br /> <span className='text-[12px] text-[#0000009b]'>with taxes</span></td>
                                     {/* <td className='border-2 text-xl font-semibold'>{book.carDetails.available=='Unavailable' ?'Cancelled':''} {book.carDetails.available=='Available' && book.carDetails.available !='Unavailable'  && (new Date() - new Date(book.carDetails.addedDate))>=60 ? 'Available':'Pending'}</td> */}
                                     {
@@ -196,7 +196,7 @@ const MyBooking = () => {
                 {modifyModalOpen && (
                     <div className="fixed inset-0  bg-opacity-100 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg w-120 shadow-lg relative">
-                        <h2 className="text-xl font-bold mb-4">This is a Modal</h2>
+                        <h2 className="text-xl font-bold mb-4">Pick a date</h2>
                         <div>
                             <form onSubmit={handleModifyForm}>
                                 <div>

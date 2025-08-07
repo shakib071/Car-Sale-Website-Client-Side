@@ -1,11 +1,85 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
 import { useLoaderData } from 'react-router';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const MyCars = () => {
-    const carData = useLoaderData();
     const {loading} = use(AuthContext);
+    const carDataaaaa = useLoaderData();
+    const [carData,setCarData] = useState(carDataaaaa);
+    
+    const [openUpdate, setOpenUpdateModal] = useState(false);
+    const [availability, setAvailability] = useState('Available');
+    const [carToBeUpdated,setCarToBeUpdate] = useState(null);
+    
+    const handleChange = (e) => {
+        setAvailability(e.target.value);
+        
+    };
+
+    const handleModalOpenClose = (car) => {
+        setOpenUpdateModal(true);
+        setAvailability(car.carDetails.available);
+        setCarToBeUpdate(car);
+
+    }
+    // console.log('car to be updated',carToBeUpdated);
+
+    const handleUpdateToDatabase=(updatedCarDetails) =>{
+        axios.patch(`http://localhost:5000/update-my-car/${carToBeUpdated._id}`,{"carDetails":updatedCarDetails})
+        .then(res => {
+            if(res.data.modifiedCount){
+                Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your Car has been Updated",
+                showConfirmButton: false,
+                timer: 1500
+                });
+                setOpenUpdateModal(false);
+                // const newMyBookingData = [
+                //         ...myBookingData.filter(item => item._id !== BookingData._id),
+                //         { ...BookingData, carDetails: { ...BookingData.carDetails, available: "Unavailable" } }
+                //         ];
+                const newDataAfterUpdate = [ ...carData.filter(item=> item._id !== carToBeUpdated._id),
+                    {...carToBeUpdated, carDetails:updatedCarDetails}
+                ]
+                setCarData(newDataAfterUpdate);
+            }
+        })
+        .then(err => console.log(err))
+    }
+
+    const handleUpdateForm =(e) =>{
+        e.preventDefault();
+        const form = e.target ;
+        const carModel = form.carModel.value;
+        const dailyRentalPrice = parseInt(form.DailyRentalPrice.value);
+        const available = availability;
+        const vehicleRegNum = form.VehicleRegNum.value;
+        const features = form.Features.value;
+        const description = form.Description.value;
+        const image = form.Image.value;
+        const location = form.Location.value;
+        //console.log(carModel,dailyRentalPrice,available,vehicleRegNum,features,description,image,location);
+
+        const updatedCarDetails = {
+            carModel,
+            dailyRentalPrice,
+            available,
+            vehicleRegNum,
+            features,
+            description,
+            bookingCount: carToBeUpdated.carDetails.bookingCount,
+            image,
+            location,
+            addedDate: carToBeUpdated.carDetails.addedDate,
+        }
+        // console.log(updatedCarDetails);
+        handleUpdateToDatabase(updatedCarDetails);
+    }
     
     console.log('car data is' ,carData);
     if(loading){
@@ -46,10 +120,10 @@ const MyCars = () => {
                                     <td className='border-2 text-xl font-semibold'>${car.carDetails.dailyRentalPrice}/day</td>
                                     <td className='border-2 text-xl font-semibold'>{car.carDetails.bookingCount}</td>
                                     <td className='border-2 text-xl font-semibold'>{car.carDetails.available}</td>
-                                    <td className='border-2 text-xl font-semibold'>{car.carDetails.addedDate.split("T")[0]}</td>
+                                    <td className='border-2 text-xl font-semibold'>{car?.carDetails?.addedDate}</td>
                                     <td className='border-2 text-xl font-semibold'>
                                         <div className='flex flex-col gap-2'>
-                                            <p className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
+                                            <p onClick={()=>handleModalOpenClose(car)} className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
                                             <p className='bg-blue-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>
                                         </div>
                                     </td>
@@ -70,7 +144,97 @@ const MyCars = () => {
                     </table>
 
                 </div>
+                
+                
+               
 
+                {openUpdate && (
+                    <div className="fixed inset-0 mt-5 bg-opacity-40 flex items-center justify-center z-50">
+                   
+                    <div className="bg-white  rounded-lg w- shadow-lg relative">
+                        
+                        <div className='bg-green-400 px-11 py-6 flex flex-col items-center rounded-2xl shadow-2xl'>
+                            
+                            <p className='text-center text-3xl text-white font-semibold'>Update Car</p>
+
+                            <form onSubmit={handleUpdateForm}  className='' >
+                                <div className='flex mt-2 flex-col'>
+                                    <label className='text-white font-semibold text-xl'>Car Model</label>
+                                    <input className='input w-[500px] input-accent' name='carModel' placeholder='Car Model' type="text" defaultValue={carToBeUpdated.carDetails.carModel} required/>
+                                </div> 
+                                <div className='flex mt-2 flex-col'>
+                                    <label className='text-white font-semibold text-xl'>Daily Rental Price</label>
+                                    <input className='input w-[500px] input-accent' name='DailyRentalPrice' placeholder='Daily Rental Price' type="number" defaultValue={carToBeUpdated.carDetails.dailyRentalPrice} required/>
+                                </div> 
+
+                                <div className='mt-2'>
+                                    <label className='text-white font-semibold text-xl'>Availability</label>
+                                    <div className="flex mt-2 items-center gap-6">
+                                        <label className="flex items-center gap-2 cursor-pointer">
+                                            <input
+                                            type="radio"
+                                            name="availability"
+                                            value="Available"
+                                            checked={availability === "Available"}
+                                            onChange={handleChange}
+                                            className="radio radio-info bg-[#ffffff]"
+                                            />
+                                            <p className='text-lg text-white'>Available</p>
+                                        </label>
+
+                                        <label className="flex items-center gap-2 cursor-pointer">
+                                            <input
+                                            type="radio"
+                                            name="availability"
+                                            value="Unavailable"
+                                            checked={availability === "Unavailable"}
+                                            onChange={handleChange}
+                                            className="radio radio-info bg-[#ffffff]"
+                                            />
+                                            <p className='text-lg text-white'>Unavailable</p>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div className='flex mt-2 flex-col'>
+                                    <label className='text-white font-semibold text-xl'>Vehicle Registration Number</label>
+                                    <input className='input w-[500px] input-accent' name='VehicleRegNum' placeholder='Vehicle Registration Number' type="text" defaultValue={carToBeUpdated.carDetails.vehicleRegNum} required/>
+                                </div> 
+
+                                <div className='flex mt-2 flex-col'>
+                                    <label className='text-white font-semibold text-xl'>Features</label>
+                                    <input className='input w-[500px] input-accent' name='Features' placeholder='Features e.g., GPS, AC, etc' type="text" defaultValue={carToBeUpdated.carDetails.features}  required/>
+                                </div> 
+                                <div className='flex mt-2 flex-col'>
+                                    <label className='text-white font-semibold text-xl'>Description</label>
+                                    <input className='input w-[500px] input-accent' name='Description' placeholder='Description' type="text" defaultValue={carToBeUpdated.carDetails.description} required/>
+                                </div> 
+                                
+                                <div className='flex mt-2 flex-col'>
+                                    <label className='text-white font-semibold text-xl'>Image url </label>
+                                    <input className='input w-[500px] input-accent' name='Image' placeholder='Image url ' type="text" defaultValue={carToBeUpdated.carDetails.image} required/>
+                                </div> 
+                                <div className='flex mt-2 flex-col'>
+                                    <label className='text-white font-semibold text-xl'>Location</label>
+                                    <input className='input w-[500px] input-accent' name='Location' placeholder='Location' type="text" defaultValue={carToBeUpdated.carDetails.location} required/>
+                                </div> 
+
+                            
+                                
+                                <div className='mt-4 flex justify-center gap-10'>
+                                    <button type='submit' className='bg-sky-500 cursor-pointer px-10 py-2 rounded-lg text-xl text-white font-semibold'>Update</button>
+                                    <button className='bg-red-500 cursor-pointer px-10 py-2 rounded-lg text-xl text-white font-semibold' onClick={() => setOpenUpdateModal(false)}>Cancel</button>
+                                </div>
+                            
+                            </form>
+
+                        </div>
+
+                     
+                        
+                    </div>
+                    </div>
+                )}
             </div>
         </div>
     );

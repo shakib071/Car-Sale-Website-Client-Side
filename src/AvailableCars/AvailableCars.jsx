@@ -92,7 +92,7 @@ const AvailableCars = () => {
                                         </div>
                                         
                                         <p><span className=' font-semibold'>Bookings: </span>{car.carDetails.bookingCount}</p>
-                                        <p><span className=' font-semibold'>Date Posted: </span> {car.carDetails.addedDate.split("T")[0]}</p>
+                                        <p><span className=' font-semibold'>Date Posted: </span> {car.carDetails.addedDate}</p>
                                         <Link to={`car-details/${car._id}`}><p className=' text-2xl font-bold btn rounded-xl mt-4'>Book Now</p></Link>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@ const AvailableCars = () => {
                                     </div>
                                     
                                     <p><span className=' font-semibold'>Bookings: </span>{car.carDetails.bookingCount}</p>
-                                    <p><span className=' font-semibold'>Date Posted: </span> {car.carDetails.addedDate.split("T")[0]}</p>
+                                    <p><span className=' font-semibold'>Date Posted: </span> {car.carDetails.addedDate}</p>
                                     <Link to='car-details'><p className=' text-2xl font-bold btn rounded-xl mt-4'>Book Now</p></Link>
                                 </div>
                                 <div>

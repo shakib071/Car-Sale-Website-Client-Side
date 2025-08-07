@@ -7,7 +7,7 @@ import RecentListing from '../RecentListing/RecentListing';
 import SpecialOffer from '../SpecialOffer/SpecialOffer';
 import Promo from '../Promo/Promo';
 import Promo2 from '../Promo/Promo2';
-import Test from '../Test/Test'
+
 
 const Home = () => {
 

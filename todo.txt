@@ -17,30 +17,15 @@ Deploy properly; no CORS/404/504 errors should appear.
 10. My Cars Page (Private)
 
 Update Button:
-Triggers a modal with the following editable fields:
-Car Model
-Daily Rental Price
-Availability
-Vehicle Registration Number
-Features (e.g., GPS, AC, etc.)
-Description
-Images (use image url)
-Location
+
 On form submission, validate the input and save changes to the database.
 Notify the user of successful updates via a modal or toast notification.
+
 Delete Button:
 Prompts a confirmation modal before proceeding.
 Upon confirmation, remove the car from the database.
 Updates the table in real-time and notifies the user of the deletion.
 If no cars are added, display a message prompting the user to add a car with a link to the "Add Car" page.
-
-
-17. My Bookings (Private)
-
-Modify Booking Date:
-On click, open a modal with a date picker allowing the user to select a new start and end date.
-Include options to Confirm or Cancel the action.
-Once confirmed, update the table with the modified booking details and save the changes.
 
 
 18. Challenges
@@ -55,7 +40,6 @@ Date Added (Newest First / Oldest First)  or Price (Lowest First / Highest First
 
 
 19. Optional Requirements:
-
 Data Visualization: Use chart.js or recharts on my Booking Page . Show charts based on car Daily Rental Price
 Layout Toggles: Add buttons for toggling the layout style (grid/list) on the "Available Cars" page.
 Explore and implement Tanstack query mutations in your api.
