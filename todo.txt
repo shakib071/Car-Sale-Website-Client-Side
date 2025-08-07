@@ -37,18 +37,7 @@ If no cars are added, display a message prompting the user to add a car with a l
 
 17. My Bookings (Private)
 
-Actions: Buttons to modify the booking date or cancel the booking.
-
-Buttons:
-Cancel Booking:
-A red button with a trash can icon and text "Cancel".
-On click, display a confirmation modal asking:
-"Are you sure you want to cancel this booking?"
-Include Yes/No options, with Yes executing the cancellation and No closing the modal.
-Update the row to reflect the new status (e.g., Canceled).
-
 Modify Booking Date:
-A blue button with a calendar icon and text "Modify Date".
 On click, open a modal with a date picker allowing the user to select a new start and end date.
 Include options to Confirm or Cancel the action.
 Once confirmed, update the table with the modified booking details and save the changes.
