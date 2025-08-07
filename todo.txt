@@ -37,15 +37,8 @@ If no cars are added, display a message prompting the user to add a car with a l
 
 17. My Bookings (Private)
 
-Core Features
-Booking Status: Clearly display whether the booking is confirmed, pending, or canceled.
 Actions: Buttons to modify the booking date or cancel the booking.
 
-Design and Interactivity
-Table Design:
-Styled rows with alternating background colors for better readability.
-Column headings (Car Image, Car Model, etc.) should use bold text and a subtle background color.
-Rows to highlight (e.g., with a light shadow or color) on hover for interactivity.
 Buttons:
 Cancel Booking:
 A red button with a trash can icon and text "Cancel".
@@ -53,6 +46,7 @@ On click, display a confirmation modal asking:
 "Are you sure you want to cancel this booking?"
 Include Yes/No options, with Yes executing the cancellation and No closing the modal.
 Update the row to reflect the new status (e.g., Canceled).
+
 Modify Booking Date:
 A blue button with a calendar icon and text "Modify Date".
 On click, open a modal with a date picker allowing the user to select a new start and end date.
