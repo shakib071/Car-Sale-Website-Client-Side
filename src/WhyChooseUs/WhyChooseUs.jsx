@@ -7,7 +7,7 @@ import { FcCustomerSupport } from "react-icons/fc";
 
 const WhyChooseUs = () => {
     return (
-        <div className='mt-15 px-10'>
+        <div className='mt-15 px-5 md:px-10'>
             <p className='text-center  text-4xl font-bold '>Why Choose Us</p>
 
             <div className='grid mt-10 grid-cols-1 md:grid-cols-4 gap-4 md:gap-10'>
