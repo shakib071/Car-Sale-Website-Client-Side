@@ -215,7 +215,7 @@ const MyBooking = () => {
                                     <td className='border-2'><img src={book.carDetails.image} alt="car image" /></td>
                                     <td className='border-2 sm:text-[12px]  lg:text-xl md:text-[13px] xl:text-2xl 2xl:text-3xl font-semibold'>{book.carDetails.carModel}</td>
                                     <td className='border-2 sm:text-[12px] lg:text-xl md:text-[15px] xl:text-2xl 2xl:text-3xl  font-semibold'>{handleDateTime(book.carDetails.addedDate)}</td>
-                                    <td className='border-2 sm:text-[12px] lg:text-xl md:text-[15px] xl:text-2xl 2xl:text-3xl  font-semibold'>{Math.round(book.carDetails.dailyRentalPrice*1.2)} <br /> <span className='text-[12px] xl:text-[17px] 2xl:text-[21px] text-[#0000009b]'>with taxes</span></td>
+                                    <td className='border-2 sm:text-[12px] lg:text-xl md:text-[15px] xl:text-2xl 2xl:text-3xl  font-semibold'>${Math.round(book.carDetails.dailyRentalPrice*1.2)} <br /> <span className='text-[12px] xl:text-[17px] 2xl:text-[21px] text-[#0000009b]'>with taxes</span></td>
                                     {/* <td className='border-2 text-xl font-semibold'>{book.carDetails.available=='Unavailable' ?'Cancelled':''} {book.carDetails.available=='Available' && book.carDetails.available !='Unavailable'  && (new Date() - new Date(book.carDetails.addedDate))>=60 ? 'Available':'Pending'}</td> */}
                                     {
                                         book.carDetails.available == 'Unavailable' && <td className='border-2 sm:text-[12px] md:text-[13px]  lg:text-xl xl:text-2xl 2xl:text-3xl  font-semibold'>Cancelled</td>
