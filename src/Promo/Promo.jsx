@@ -47,7 +47,7 @@ const Test = () => {
             <div className='flex justify-center'>
                 <Lottie className='w-100 ' animationData={wheelAnimation} loop={true} />
             </div>
-            <h2 className='text-2xl'>WINTER TIRE PACKAGE <span className="text-[#1bf407] font-bold">30% OFF</span></h2>
+            <h2 className='text-2xl'>WINTER TIRE PACKAGE <span className="text-[#1bf407] text-3xl font-bold"><br />30% OFF</span></h2>
             <p className='text-xl text-[#e5e907]'>Get your car winter-ready with premium tires + free installation</p>
             
         </div>

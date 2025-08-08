@@ -65,7 +65,7 @@ export default function SpecialOffer() {
                 <SwiperSlide className='hover:scale-105 transition-transform duration-300' key={off.id}>  <motion.div
                     animate={{ x: [0,10,0] , y: [0, -10, 10,0] }}
                     transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                    className="w-100 h-40 py-50  bg-gradient-to-b from-green-400 to-blue-500  rounded-xl flex items-center justify-center text-white font-bold text-lg"
+                    className="md:w-100 h-40 py-50  bg-gradient-to-b from-green-400 to-blue-500  rounded-xl flex items-center justify-center text-white font-bold text-lg"
                     >
                         <div >
                             <div>

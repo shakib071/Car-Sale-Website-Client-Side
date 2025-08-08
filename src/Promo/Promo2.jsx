@@ -8,10 +8,10 @@ const Promo2 = () => {
             <div className='flex flex-col items-center'>
               
                 <div>
-                    <Lottie className='w-180' animationData={SaleAnimation} loop={true} />
+                    <Lottie className='w-80' animationData={SaleAnimation} loop={true} />
                 </div>
                 
-                <h2 className='text-2xl text-[#f60909fa] font-semibold'>🏖️ SUMMER ADVENTURE SALE</h2>
+                <h2 className='text-2xl text-[#f60909fa] text-center font-semibold'>🏖️ SUMMER ADVENTURE SALE</h2>
                 <p className='text-lg font-semibold'>2.3% APR Financing on All SUVs</p>
             </div>
         </div>
