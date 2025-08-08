@@ -28,7 +28,7 @@ const AddCar = () => {
     };
 
     const addCarDataToDatabase = (carData) => {
-        console.log(carData);
+        // console.log(carData);
 
         try{
             axios.post('https://car-sale-web-server.vercel.app/addCar',carData)
@@ -100,7 +100,7 @@ const AddCar = () => {
             carDetails,
             userWhoAdded
         }
-        console.log(addedCarData);
+        // console.log(addedCarData);
         addCarDataToDatabase(addedCarData);
         // form.reset();
     }

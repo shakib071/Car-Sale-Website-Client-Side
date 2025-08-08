@@ -9,7 +9,7 @@ import Loading from '../Loading/Loading';
 const CarDetails = () => {
     const {user} = use(AuthContext);
     const DetailsData = useLoaderData();
-    console.log('details',DetailsData);
+    // console.log('details',DetailsData);
     const navigate = useNavigate();
     const navigation = useNavigation();
 
@@ -27,7 +27,7 @@ const CarDetails = () => {
             userWhoAdded : bookingData.userWhoAdded
 
         }
-        console.log(BookDataToAdd);
+        // console.log(BookDataToAdd);
         try{
 
         

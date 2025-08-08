@@ -22,7 +22,7 @@ const AvailableCars = () => {
 
     
 
-    console.log(allCars);
+    // console.log(allCars);
    
     
 
@@ -51,7 +51,7 @@ const AvailableCars = () => {
         else{
             const search = searchText.toLowerCase();
             const filteredCar = allCars.filter(car => car.carDetails.carModel.toLowerCase().includes(search) ||  car.carDetails.location.toLowerCase().includes(search));
-            console.log(search,filteredCar);
+            // console.log(search,filteredCar);
             setAllCars(filteredCar);
         }
         

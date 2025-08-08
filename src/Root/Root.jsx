@@ -8,8 +8,8 @@ import Loading from '../Loading/Loading';
 
 
 const Root = () => {
-    const {user,loading} = use(AuthContext);
-    console.log('user is',user);
+    const {loading} = use(AuthContext);
+    // console.log('user is',user);
     if(loading){
         return <Loading></Loading>;
     }
