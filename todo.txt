@@ -14,9 +14,6 @@ Deploy properly; no CORS/404/504 errors should appear.
 
 
 18. Challenges
- 
-JWT Authentication Requirement: Implement JWT-based authentication to secure private routes and verify users. Store the generated token in an HTTP-only cookie after successful login and remove it during logout. Include middleware to validate tokens for access to protected APIs, ensuring session integrity.
-Note: Custom method or Firebase which you want to use is upto you.
 
 Incremental Booking Updates:  Use MongoDB operators like $inc to track booking counts.
 
