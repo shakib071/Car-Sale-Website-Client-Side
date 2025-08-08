@@ -140,6 +140,10 @@ const MyCars = () => {
         <Suspense fallback={<Loading></Loading>}>
         <div>
             <p className='mt-12 text-4xl text-center font-bold'>My Cars</p>
+            
+         {
+            carData.length >0 &&
+            <>
             <div className='flex justify-center gap-10 items-center   mt-10 mx-auto'>
                 <div className='  '>
                     <details className="dropdown ">
@@ -153,8 +157,6 @@ const MyCars = () => {
                     </details>
                 </div>
             </div>
-         {
-            carData.length >0 &&
             <div className='mt-10 w-[95%] mx-auto'>
 
                 <div className="overflow-x-auto">
@@ -299,6 +301,7 @@ const MyCars = () => {
                     </div>
                 )}
             </div>
+            </>
          }
 
          {
