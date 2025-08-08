@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router';
 
 const MyCars = () => {
-    const {loading} = use(AuthContext);
+    const {loading,user} = use(AuthContext);
     const carDataaaaa = useLoaderData();
     const [carData,setCarData] = useState(carDataaaaa);   
     const [openUpdate, setOpenUpdateModal] = useState(false);
@@ -120,6 +120,14 @@ const MyCars = () => {
         
 
     }
+
+    const handleSortMyCars = async(sortQuery) => {
+        console.log(sortQuery);
+        const response = await fetch(`https://car-sale-web-server.vercel.app/myCars/${user.uid}?sort=${sortQuery}`);
+        const data = await response.json();
+        console.log(data);
+        setCarData(data);
+    }
     
     
     if(loading){
@@ -132,6 +140,19 @@ const MyCars = () => {
         <Suspense fallback={<Loading></Loading>}>
         <div>
             <p className='mt-12 text-4xl text-center font-bold'>My Cars</p>
+            <div className='flex justify-center gap-10 items-center   mt-10 mx-auto'>
+                <div className='  '>
+                    <details className="dropdown ">
+                        <summary className="btn m-1 px-20 py-2 text-2xl font-semibold shadow-2xl rounded-lg">Sort Cars</summary>
+                        <ul className="menu dropdown-content text-xl bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                            <li onClick={()=> handleSortMyCars('date-asc')}><a>Sort By Date Asc</a></li>
+                            <li onClick={()=> handleSortMyCars('date-des')}><a>Sort By Date Des</a></li>
+                            <li onClick={()=> handleSortMyCars('price-asc')}><a>Sort By Price Asc</a></li>
+                            <li onClick={()=> handleSortMyCars('price-des')}><a>Sort By Price Des</a></li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
          {
             carData.length >0 &&
             <div className='mt-10 w-[95%] mx-auto'>

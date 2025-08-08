@@ -14,7 +14,7 @@ const AvailableCars = () => {
 
     useEffect(()=> {
         setAllCars(carsData);
-    },[]);
+    },[carsData]);
 
     if(navigation.state === 'loading') {
         return <Loading></Loading>;
@@ -38,6 +38,23 @@ const AvailableCars = () => {
         const data = await response.json();
         setAllCars(data);
     
+    }
+
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const searchText = form.search.value;
+        if(searchText == ''){
+            setAllCars(carsData);
+        }
+        else{
+            const search = searchText.toLowerCase();
+            const filteredCar = allCars.filter(car => car.carDetails.carModel.toLowerCase().includes(search) ||  car.carDetails.location.toLowerCase().includes(search));
+            console.log(search,filteredCar);
+            setAllCars(filteredCar);
+        }
+        
     }
 
     if(loading){
@@ -79,6 +96,15 @@ const AvailableCars = () => {
                         </ul>
                     </details>
                 </div>
+           </div>
+
+           <div className='mt-7 '>
+                <form onSubmit={handleSearch} className='flex justify-center items-center gap-5' >
+                    
+                    <input className='input w-[50%] shadow-md hover:shadow-2xl input-accent' name='search' placeholder='Search a Car by model, brand, or location' type="text" />
+                    <button className='bg-[#52ab32] text-white px-5 py-2 rounded-xl text-xl font-bold' type='submut'>Search</button>
+
+                </form>
            </div>
             {
                 isgrid && (

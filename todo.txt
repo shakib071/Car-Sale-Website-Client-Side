@@ -4,7 +4,6 @@ Project Overview
 We are seeking a proficient Car Rental System Developer to lead the creation of a feature-rich, user-centric car rental platform. Your role involves designing and implementing responsive frontend and robust backend systems. The platform will enable seamless car bookings, user authentication, and efficient management of car inventory. Proficiency in frontend technologies like HTML, CSS, JavaScript, React.js, and backend frameworks like Node.js, Express.js, and MongoDB is required. Familiarity with Firebase Authentication, JWT implementation, and advanced filtering techniques will be beneficial. Join us to innovate car rentals through technology and user experience!
 
 Let’s Understand the Website Theme
-Users can Add, Update, and Delete Cars listed for rental.
 Users can Search and Book Cars based on their availability.
 The system provides real-time updates on car availability and booking statuses.
 Ensure the Following for Full Marks
@@ -15,10 +14,11 @@ Deploy properly; no CORS/404/504 errors should appear.
 
 
 18. Challenges
-Search Functionality: Add search functionality based on the car model, brand, or location on the available Cars Page. 
+ 
 JWT Authentication Requirement: Implement JWT-based authentication to secure private routes and verify users. Store the generated token in an HTTP-only cookie after successful login and remove it during logout. Include middleware to validate tokens for access to protected APIs, ensuring session integrity.
 Note: Custom method or Firebase which you want to use is upto you.
 Incremental Booking Updates:  Use MongoDB operators like $inc to track booking counts.
+
 Add Sorting options(from backend or frontend): On My Cars Page => 
 Sorting:
 Enable users to sort cars by:
