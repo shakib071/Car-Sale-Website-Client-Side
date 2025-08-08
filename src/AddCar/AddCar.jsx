@@ -3,7 +3,7 @@ import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router';
+import { useNavigate, useNavigation } from 'react-router';
 
 // const today = new Date();
 // console.log(today);
@@ -12,6 +12,12 @@ const AddCar = () => {
     const {loading,user} = use(AuthContext);
     const [availability, setAvailability] = useState('Available'); 
     const navigate = useNavigate();
+
+    const navigation = useNavigation();
+
+    if(navigation.state === 'loading') {
+        return <Loading></Loading>;
+    }
     if(loading){
         return <Loading></Loading>;
     }

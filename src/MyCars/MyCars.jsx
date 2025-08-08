@@ -1,7 +1,7 @@
-import React, { use, useState } from 'react';
+import React, { Suspense, use, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigation } from 'react-router';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
@@ -13,7 +13,11 @@ const MyCars = () => {
     const [openUpdate, setOpenUpdateModal] = useState(false);
     const [availability, setAvailability] = useState('Available');
     const [carToBeUpdated,setCarToBeUpdate] = useState(null);
+    const navigation = useNavigation();
 
+    if(navigation.state === 'loading') {
+        return <Loading></Loading>;
+    }
     
     const handleChange = (e) => {
         setAvailability(e.target.value);
@@ -125,6 +129,7 @@ const MyCars = () => {
     
 
     return (
+        <Suspense fallback={<Loading></Loading>}>
         <div>
             <p className='mt-12 text-4xl text-center font-bold'>My Cars</p>
          {
@@ -285,6 +290,7 @@ const MyCars = () => {
 
 
         </div>
+        </Suspense>
     );
 };
 

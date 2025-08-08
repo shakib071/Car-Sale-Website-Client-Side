@@ -1,7 +1,7 @@
-import React, { use, useEffect, useState} from 'react';
+import React, {Suspense, use, useEffect, useState} from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigation } from 'react-router';
 import { FaTrashAlt } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import Swal from 'sweetalert2';
@@ -15,9 +15,8 @@ const MyBooking = () => {
     const [toBeModifyData,setToBeModifyData] = useState(null);
     const [myBookingData,setMyBookingData] = useState(BookingData);
     const [dateTime, setDateTime] = useState('2025-08-07T21:13');
-    
-    
-    console.log('booking data ',typeof myBookingData);
+
+    const navigation = useNavigation();
 
     useEffect(() => {
         const now = new Date();
@@ -26,6 +25,13 @@ const MyBooking = () => {
         const formatted = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
         setDateTime(formatted);
     },[]);
+
+    if(navigation.state === 'loading') {
+        return <Loading></Loading>;
+    }
+    
+
+    
     
 
     const handleDateTimeChange = (e) =>{
@@ -129,6 +135,7 @@ const MyBooking = () => {
         return <Loading></Loading>;
     }
     return (
+        <Suspense fallback={<Loading></Loading>}>
         <div>
             <p className='mt-10 text-4xl font-bold text-center'>My Booking</p>
 
@@ -234,6 +241,7 @@ const MyBooking = () => {
 
             </div>
         </div>
+        </Suspense>
     );
 };
 

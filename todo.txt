@@ -14,11 +14,6 @@ Design with an eye-pleasing color contrast and proper alignment. Avoid cluttered
 Deploy properly; no CORS/404/504 errors should appear.
 
 
-10. My Cars Page (Private)
-
-If no cars are added, display a message prompting the user to add a car with a link to the "Add Car" page.
-
-
 18. Challenges
 Search Functionality: Add search functionality based on the car model, brand, or location on the available Cars Page. 
 JWT Authentication Requirement: Implement JWT-based authentication to secure private routes and verify users. Store the generated token in an HTTP-only cookie after successful login and remove it during logout. Include middleware to validate tokens for access to protected APIs, ensuring session integrity.

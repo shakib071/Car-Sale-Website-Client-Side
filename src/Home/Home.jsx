@@ -7,11 +7,18 @@ import RecentListing from '../RecentListing/RecentListing';
 import SpecialOffer from '../SpecialOffer/SpecialOffer';
 import Promo from '../Promo/Promo';
 import Promo2 from '../Promo/Promo2';
+import { useNavigation } from 'react-router';
 
 
 const Home = () => {
 
     const {loading} = use(AuthContext);
+    const navigation = useNavigation();
+
+    if(navigation.state === 'loading') {
+        return <Loading></Loading>;
+    }
+    
     if(loading){
         return <Loading></Loading>;
     }

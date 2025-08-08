@@ -1,19 +1,26 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { Suspense, use, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
 import { FaListUl } from "react-icons/fa";
 import { IoGrid } from "react-icons/io5";
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigation } from 'react-router';
 
 const AvailableCars = () => {
     const {loading} = use(AuthContext);
     const [allCars,setAllCars] = useState([]);
     const [isgrid, setGrid] = useState(true);
     const carsData = useLoaderData();
+    const navigation = useNavigation();
 
     useEffect(()=> {
         setAllCars(carsData);
     },[]);
+
+    if(navigation.state === 'loading') {
+        return <Loading></Loading>;
+    }
+
+    
 
     console.log(allCars);
    
@@ -38,6 +45,7 @@ const AvailableCars = () => {
     }
     
     return (
+        <Suspense fallback={<Loading></Loading>}>
         <div>
             <p className='mt-10 text-4xl font-bold text-center'>Available Cars</p>
             
@@ -145,6 +153,7 @@ const AvailableCars = () => {
             
             
         </div>
+        </Suspense>
     );
 };
 
