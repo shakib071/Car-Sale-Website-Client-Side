@@ -128,6 +128,16 @@ const MyCars = () => {
         console.log(data);
         setCarData(data);
     }
+
+    const handleDateTime = (dateTime) => {
+       
+        const date = new Date(dateTime);
+        const localDate = date.toLocaleDateString();
+        const localTime = date.toLocaleTimeString();
+        const dateTimeDate = `${localDate}  ${localTime}`;
+        
+        return dateTimeDate;
+    }
     
     
     if(loading){
@@ -185,7 +195,7 @@ const MyCars = () => {
                                         <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>${car.carDetails.dailyRentalPrice}/day</td>
                                         <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{car.carDetails.bookingCount}</td>
                                         <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{car.carDetails.available}</td>
-                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{car?.carDetails?.addedDate}</td>
+                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{handleDateTime(car?.carDetails?.addedDate)}</td>
                                         <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>
                                             <div className='flex flex-col gap-2'>
                                                 <p onClick={()=>handleModalOpenClose(car)} className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
