@@ -139,7 +139,7 @@ const MyCars = () => {
     return (
         <Suspense fallback={<Loading></Loading>}>
         <div>
-            <p className='mt-12 text-4xl text-center font-bold'>My Cars</p>
+            <p className='mt-12 text-4xl xl:text-6xl text-center font-bold'>My Cars</p>
             
          {
             carData.length >0 &&
@@ -147,8 +147,8 @@ const MyCars = () => {
                 <div className='flex justify-center gap-10 items-center   mt-10 mx-auto'>
                     <div className='  '>
                         <details className="dropdown ">
-                            <summary className="btn m-1 px-20 py-2 text-2xl font-semibold shadow-2xl rounded-lg">Sort Cars</summary>
-                            <ul className="menu dropdown-content text-xl bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                            <summary className="btn m-1 xl:text-3xl px-20 py-2 xl:py-8 text-2xl font-semibold shadow-2xl rounded-lg">Sort Cars</summary>
+                            <ul className="menu dropdown-content text-xl xl:text-2xl bg-base-100 rounded-box z-1 w-52 xl:w-70 p-2 shadow-sm">
                                 <li onClick={()=> handleSortMyCars('date-asc')}><a>Sort By Date Asc</a></li>
                                 <li onClick={()=> handleSortMyCars('date-des')}><a>Sort By Date Des</a></li>
                                 <li onClick={()=> handleSortMyCars('price-asc')}><a>Sort By Price Asc</a></li>
@@ -161,9 +161,9 @@ const MyCars = () => {
 
                     <div className="overflow-x-auto">
 
-                        <table className="table bg-white shadow-2xl table-md">
+                        <table className="table bg-white shadow-2xl table-sm md:table-md">
                             <thead>
-                            <tr className='text-xl '>
+                            <tr className='text-[8px] sm:text-[10px] md:text-[11px] lg:text-lg xl:text-xl 2xl:text-2xl'>
                                 
                                 <th className='border-2 border-[#ea2b3e]'>Car Image</th>
                                 <th className='border-2 border-[#ea2b3e]'>Car Model</th>
@@ -181,12 +181,12 @@ const MyCars = () => {
                                     <tr key={car._id} className='text-center '>
                                         
                                         <td className='border-2'><img src={car.carDetails.image} alt="car image" /></td>
-                                        <td className='border-2 text-xl font-semibold'>{car.carDetails.carModel}</td>
-                                        <td className='border-2 text-xl font-semibold'>${car.carDetails.dailyRentalPrice}/day</td>
-                                        <td className='border-2 text-xl font-semibold'>{car.carDetails.bookingCount}</td>
-                                        <td className='border-2 text-xl font-semibold'>{car.carDetails.available}</td>
-                                        <td className='border-2 text-xl font-semibold'>{car?.carDetails?.addedDate}</td>
-                                        <td className='border-2 text-xl font-semibold'>
+                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{car.carDetails.carModel}</td>
+                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>${car.carDetails.dailyRentalPrice}/day</td>
+                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{car.carDetails.bookingCount}</td>
+                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{car.carDetails.available}</td>
+                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>{car?.carDetails?.addedDate}</td>
+                                        <td className='border-2 text-[9px] md:text-[12px] lg:text-lg xl:text-2xl 2xl:text-3xl font-semibold'>
                                             <div className='flex flex-col gap-2'>
                                                 <p onClick={()=>handleModalOpenClose(car)} className='bg-green-500 text-white px-2 py-1 cursor-pointer rounded-md '>Update</p>
                                                 <p onClick={()=> handleDeleteCar(car)} className='bg-red-500 text-white px-2 py-1 cursor-pointer rounded-md '>Delete</p>

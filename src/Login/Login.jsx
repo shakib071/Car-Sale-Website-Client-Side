@@ -34,7 +34,7 @@ const Login = () => {
 
         login(email,password)
         .then(()=>{
-            navigate(`${location.state ? location.state : '/'}`);
+            navigate('/');
         })
         .catch((error)=> {
             setLoading(false);

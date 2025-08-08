@@ -139,13 +139,13 @@ const MyBooking = () => {
         <div>
             <p className='mt-10 text-4xl font-bold text-center'>My Booking</p>
 
-            <div className='mt-10 w-[98%] mx-auto'>
+            <div className='mt-10 w-[98%] 2xl:w-[95%] mx-auto'>
 
                 <div className="overflow-x-auto">
 
-                    <table className="table bg-white shadow-2xl table-md">
+                    <table className="table bg-white  shadow-2xl table-md">
                         <thead>
-                        <tr className='text-xl '>
+                        <tr className='text-sm sm:text-[11px] md:text-[13px] lg:text-xl xl:text-2xl 2xl:text-3xl'>
                             
                             <th className='border-2 border-[#ea2b3e] bg-blue-300 hover:shadow-xl transition-transform duration-100 hover:scale-103 hover:rounded-lg'>Car Image</th>
                             <th className='border-2 border-[#ea2b3e] bg-red-50 hover:shadow-xl transition-transform duration-100 hover:scale-103 hover:rounded-lg '>Car Model</th>
@@ -162,21 +162,21 @@ const MyBooking = () => {
                                 <tr key={index} className={`text-center ${index%2 ==0 ? 'bg-white': 'bg-[#c4baba5b]' }`}>
                                     
                                     <td className='border-2'><img src={book.carDetails.image} alt="car image" /></td>
-                                    <td className='border-2 text-xl font-semibold'>{book.carDetails.carModel}</td>
-                                    <td className='border-2 text-xl font-semibold'>{book.carDetails.addedDate}</td>
-                                    <td className='border-2 text-xl font-semibold'>{Math.round(book.carDetails.dailyRentalPrice*1.2)} <br /> <span className='text-[12px] text-[#0000009b]'>with taxes</span></td>
+                                    <td className='border-2 sm:text-[12px]  lg:text-xl md:text-[13px] xl:text-2xl 2xl:text-3xl font-semibold'>{book.carDetails.carModel}</td>
+                                    <td className='border-2 sm:text-[12px] lg:text-xl md:text-[15px] xl:text-2xl 2xl:text-3xl  font-semibold'>{book.carDetails.addedDate}</td>
+                                    <td className='border-2 sm:text-[12px] lg:text-xl md:text-[15px] xl:text-2xl 2xl:text-3xl  font-semibold'>{Math.round(book.carDetails.dailyRentalPrice*1.2)} <br /> <span className='text-[12px] xl:text-[17px] 2xl:text-[21px] text-[#0000009b]'>with taxes</span></td>
                                     {/* <td className='border-2 text-xl font-semibold'>{book.carDetails.available=='Unavailable' ?'Cancelled':''} {book.carDetails.available=='Available' && book.carDetails.available !='Unavailable'  && (new Date() - new Date(book.carDetails.addedDate))>=60 ? 'Available':'Pending'}</td> */}
                                     {
-                                        book.carDetails.available == 'Unavailable' && <td className='border-2 text-xl font-semibold'>Cancelled</td>
+                                        book.carDetails.available == 'Unavailable' && <td className='border-2 sm:text-[12px] md:text-[13px]  lg:text-xl xl:text-2xl 2xl:text-3xl  font-semibold'>Cancelled</td>
                                     }
                                     {
-                                        book.carDetails.available == 'Available'  && <td className='border-2 text-xl font-semibold'>{handleConfirmed(book.carDetails.addedDate)}</td>
+                                        book.carDetails.available == 'Available'  && <td className='border-2 sm:text-[12px] md:text-[13px] lg:text-xl xl:text-2xl 2xl:text-3xl  font-semibold'>{handleConfirmed(book.carDetails.addedDate)}</td>
                                     }
                                    
                                     
-                                    <td className='border-2 text-xl font-semibold'>
+                                    <td className='border-2 lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold'>
                                         <div className='flex flex-col gap-2'>
-                                            <div onClick={()=>handleSetModified(book) }  className='flex items-center gap-2 bg-blue-700 text-white px-2 py-1 cursor-pointer rounded-md'>
+                                            <div onClick={()=>handleSetModified(book) }  className='flex items-center gap-2 bg-blue-700 text-white px-2 py-1 xl:px-4 xl:py-2  cursor-pointer rounded-md'>
                                                 <p><SlCalender className='text-green-500 font-bold' /></p>
                                                 <p className=''>Modify</p>
                                             </div>
