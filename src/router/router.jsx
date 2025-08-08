@@ -13,6 +13,7 @@ import AddCar from "../AddCar/AddCar";
 import MyBooking from "../MyBooking/MyBooking";
 import Loading from "../Loading/Loading";
 import CarDetails from "../CarDetails/CarDetails";
+import { auth } from "../Firebase/firebase.config";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,25 @@ const router = createBrowserRouter([
       {
         path: 'my-cars/:id',
         element: <PrivateRouter><MyCars></MyCars></PrivateRouter>,
-        loader: async ({params}) => await fetch(`https://car-sale-web-server.vercel.app/myCars/${params.id}`),
+        loader: async ({params}) => {
+          try {
+            await auth.authStateReady();
+            const token =await auth.currentUser.getIdToken();
+            // console.log(token);
+
+            const response = await fetch(`https://car-sale-web-server.vercel.app/myCars/${params.id}`,{
+              headers: {
+                authorization: `Bearer ${token}`,
+
+              }
+            });
+
+            return response;
+          }
+          catch(error){
+            console.log(error);
+          }
+        },
         HydrateFallback: Loading,
       },
       {
@@ -53,7 +72,23 @@ const router = createBrowserRouter([
       },
       {
         path: 'my-booking/:id',
-        loader: async ({params}) => await fetch(`https://car-sale-web-server.vercel.app/bookings/${params.id}`),
+        loader: async ({params}) => {
+          try {
+            await auth.authStateReady();
+            const token =await auth.currentUser.getIdToken();
+            const response = await fetch(`https://car-sale-web-server.vercel.app/bookings/${params.id}`,{
+              headers: {
+                authorization: `Bearer ${token}`,
+
+              }
+            });
+
+            return response;
+          }
+          catch(error){
+            console.log(error);
+          }
+        },
         element: <PrivateRouter><MyBooking></MyBooking></PrivateRouter>,
         HydrateFallback: Loading,
       },

@@ -17,12 +17,8 @@ Deploy properly; no CORS/404/504 errors should appear.
  
 JWT Authentication Requirement: Implement JWT-based authentication to secure private routes and verify users. Store the generated token in an HTTP-only cookie after successful login and remove it during logout. Include middleware to validate tokens for access to protected APIs, ensuring session integrity.
 Note: Custom method or Firebase which you want to use is upto you.
-Incremental Booking Updates:  Use MongoDB operators like $inc to track booking counts.
 
-Add Sorting options(from backend or frontend): On My Cars Page => 
-Sorting:
-Enable users to sort cars by:
-Date Added (Newest First / Oldest First)  or Price (Lowest First / Highest First)
+Incremental Booking Updates:  Use MongoDB operators like $inc to track booking counts.
 
 
 19. Optional Requirements:
