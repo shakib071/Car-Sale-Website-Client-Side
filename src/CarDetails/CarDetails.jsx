@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { use } from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router';
+import { Link, useLoaderData, useNavigate, useNavigation } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider/AuthContext';
+import Loading from '../Loading/Loading';
 
 
 const CarDetails = () => {
@@ -10,6 +11,11 @@ const CarDetails = () => {
     const DetailsData = useLoaderData();
     console.log('details',DetailsData);
     const navigate = useNavigate();
+    const navigation = useNavigation();
+
+    if(navigation.state === 'loading'){
+        return <Loading></Loading>;
+    }
 
 
     const addMyBookingToDatabase = (bookingData) => {
@@ -22,25 +28,41 @@ const CarDetails = () => {
 
         }
         console.log(BookDataToAdd);
+        try{
 
-        axios.post('https://car-sale-web-server.vercel.app/booking',BookDataToAdd)
-        .then(res => {
-            if(res.data.insertedId){
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Booked!",
-                    text: "Your selected car has been booked.",
-                    showConfirmButton: false,
-                    timer: 1500
-                    });
+        
+            axios.post('https://car-sale-web-server.vercel.app/booking',BookDataToAdd)
+            .then(res => {
+                if(res.data.insertedId){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Booked!",
+                        text: "Your selected car has been booked.",
+                        showConfirmButton: false,
+                        timer: 1500
+                        });
+                    
+                    navigate(`/my-booking/${user.uid}`);
                 
-                navigate(`/my-booking/${user.uid}`);
-               
-            }
-            
-        })
-        .catch(error => console.log(error));
+                }
+                
+            })
+            .catch(error => console.log(error));
+        }
+        catch(error){
+            console.log(error);
+            Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Oops...",
+            text: "something went wrong",
+            showConfirmButton: false,
+            timer: 1500
+            });
+
+            navigate('/available-cars');
+        }
     }
 
 

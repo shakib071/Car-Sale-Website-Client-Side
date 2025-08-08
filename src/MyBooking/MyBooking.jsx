@@ -1,7 +1,7 @@
 import React, {Suspense, use, useEffect, useState} from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
-import { useLoaderData, useNavigation } from 'react-router';
+import { useLoaderData, useNavigate, useNavigation } from 'react-router';
 import { FaTrashAlt } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import Swal from 'sweetalert2';
@@ -15,6 +15,7 @@ const MyBooking = () => {
     const [toBeModifyData,setToBeModifyData] = useState(null);
     const [myBookingData,setMyBookingData] = useState(BookingData);
     const [dateTime, setDateTime] = useState('2025-08-07T21:13');
+    const navigate = useNavigate();
 
     const navigation = useNavigation();
 
@@ -49,29 +50,49 @@ const MyBooking = () => {
         e.preventDefault();
         const date = new Date(dateTime);
         const formattedDate = date.toISOString();
-        console.log(formattedDate);
+       
 
-        axios.patch(`https://car-sale-web-server.vercel.app/update-booking-data/${toBeModifyData._id}`,{"carDetails.addedDate": formattedDate})
-        .then((res)=> {
-            if(res.data.modifiedCount){
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Your booking  has been rescheduled",
-                    showConfirmButton: false,
-                    timer: 1500
-                    });
+        
+        try{
+            
+            axios.patch(`https://car-sale-web-server.vercel.app/update-booking-data/${toBeModifyData._id}`,{"carDetails.addedDate": formattedDate})
+            .then((res)=> {
+                if(res.data.modifiedCount){
+                    
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your booking  has been rescheduled",
+                        showConfirmButton: false,
+                        timer: 1500
+                        });
 
-                const newMyBookingData = [
-                        ...myBookingData.filter(item => item._id !== toBeModifyData._id),
-                        { ...toBeModifyData, carDetails: { ...toBeModifyData.carDetails, addedDate: formattedDate } }
-                        ];
-                setMyBookingData(newMyBookingData);
-                setModifyModalOpen(false);
-                
-            }
-        })
-        .then((error)=> console.log(error))
+                    const newMyBookingData = [
+                            ...myBookingData.filter(item => item._id !== toBeModifyData._id),
+                            { ...toBeModifyData, carDetails: { ...toBeModifyData.carDetails, addedDate: formattedDate } }
+                            ];
+                    setMyBookingData(newMyBookingData);
+                    setModifyModalOpen(false);
+                    
+                }
+            })
+            .then((error)=> console.log(error))
+           
+        }
+        catch(error){
+            
+            console.log(error);
+            Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Oops...",
+            text: "something went wrong",
+            showConfirmButton: false,
+            timer: 1500
+            });
+
+            navigate('/available-cars');
+        }
     }
     
 
@@ -103,28 +124,46 @@ const MyBooking = () => {
             }).then((result) => {
             if (result.isConfirmed) {
             //    console.log(BookingData.carDetails.available);
-               axios.patch(`https://car-sale-web-server.vercel.app/update-booking-data/${BookingData._id}`,{"carDetails.available": "Unavailable"})
-               .then(res =>{
-                 if(res.data.modifiedCount){
+           
+               try{
+                    axios.patch(`https://car-sale-web-server.vercel.app/update-booking-data/${BookingData._id}`,{"carDetails.available": "Unavailable"})
+                    .then(res =>{
+                    if(res.data.modifiedCount){
+                        
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Your booking  has been canceled",
+                            showConfirmButton: false,
+                            timer: 1500
+                            });
+
+                        // const newMyBookingData = myBookingData.filter(item => item._id != BookingData._id);
+                        // BookingData.carDetails.available = "Unavailable";
+                        const newMyBookingData = [
+                            ...myBookingData.filter(item => item._id !== BookingData._id),
+                            { ...BookingData, carDetails: { ...BookingData.carDetails, available: "Unavailable" } }
+                            ];
+
+                        setMyBookingData(newMyBookingData);
+                    }
+                    })
+                    .then(err => console.log(err));
+                }
+                catch(error){
+                    
+                    console.log(error);
                     Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Your booking  has been canceled",
-                        showConfirmButton: false,
-                        timer: 1500
-                        });
+                    position: "center",
+                    icon: "error",
+                    title: "Oops...",
+                    text: "something went wrong",
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
 
-                    // const newMyBookingData = myBookingData.filter(item => item._id != BookingData._id);
-                    // BookingData.carDetails.available = "Unavailable";
-                    const newMyBookingData = [
-                        ...myBookingData.filter(item => item._id !== BookingData._id),
-                        { ...BookingData, carDetails: { ...BookingData.carDetails, available: "Unavailable" } }
-                        ];
-
-                    setMyBookingData(newMyBookingData);
-                 }
-               })
-               .then(err => console.log(err));
+                    navigate('/available-cars');
+                }
             }
             });
     }

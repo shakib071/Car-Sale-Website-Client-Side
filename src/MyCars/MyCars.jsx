@@ -1,7 +1,7 @@
 import React, { Suspense, use, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import Loading from '../Loading/Loading';
-import { useLoaderData, useNavigation } from 'react-router';
+import { useLoaderData, useNavigate, useNavigation } from 'react-router';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
@@ -14,6 +14,7 @@ const MyCars = () => {
     const [availability, setAvailability] = useState('Available');
     const [carToBeUpdated,setCarToBeUpdate] = useState(null);
     const navigation = useNavigation();
+    const navigate = useNavigate();
 
     if(navigation.state === 'loading') {
         return <Loading></Loading>;
@@ -33,28 +34,47 @@ const MyCars = () => {
     // console.log('car to be updated',carToBeUpdated);
 
     const handleUpdateToDatabase=(updatedCarDetails) =>{
-        axios.patch(`https://car-sale-web-server.vercel.app/update-my-car/${carToBeUpdated._id}`,{"carDetails":updatedCarDetails})
-        .then(res => {
-            if(res.data.modifiedCount){
-                Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Your Car has been Updated",
-                showConfirmButton: false,
-                timer: 1500
-                });
-                setOpenUpdateModal(false);
-                // const newMyBookingData = [
-                //         ...myBookingData.filter(item => item._id !== BookingData._id),
-                //         { ...BookingData, carDetails: { ...BookingData.carDetails, available: "Unavailable" } }
-                //         ];
-                const newDataAfterUpdate = [ ...carData.filter(item=> item._id !== carToBeUpdated._id),
-                    {...carToBeUpdated, carDetails:updatedCarDetails}
-                ]
-                setCarData(newDataAfterUpdate);
-            }
-        })
-        .then(err => console.log(err))
+        try{
+            
+            axios.patch(`https://car-sale-web-server.vercel.app/update-my-car/${carToBeUpdated._id}`,{"carDetails":updatedCarDetails})
+            .then(res => {
+                if(res.data.modifiedCount){
+                    
+                    Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your Car has been Updated",
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+                    setOpenUpdateModal(false);
+                    // const newMyBookingData = [
+                    //         ...myBookingData.filter(item => item._id !== BookingData._id),
+                    //         { ...BookingData, carDetails: { ...BookingData.carDetails, available: "Unavailable" } }
+                    //         ];
+                    const newDataAfterUpdate = [ ...carData.filter(item=> item._id !== carToBeUpdated._id),
+                        {...carToBeUpdated, carDetails:updatedCarDetails}
+                    ]
+                    setCarData(newDataAfterUpdate);
+                }
+            })
+            .then(err => console.log(err))
+        }
+        catch(error){
+            
+            console.log(error);
+            Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Oops...",
+            text: "something went wrong",
+            showConfirmButton: false,
+            timer: 1500
+            });
+
+            navigate('/available-cars');
+        }
+        
     }
 
     const handleUpdateForm =(e) =>{
@@ -87,7 +107,7 @@ const MyCars = () => {
     }
 
     const handleDeleteCar = (car) =>{
-        console.log(car);
+        // console.log(car);
 
         Swal.fire({
             title: "Are you sure you want to delete it?",
@@ -99,22 +119,41 @@ const MyCars = () => {
             confirmButtonText: "Yes, delete it!"
             }).then((result) => {
             if (result.isConfirmed) {
-               axios.delete(`https://car-sale-web-server.vercel.app/delete-cars/${car._id}`)
-                .then(res => {
+                
+                try{
+                    axios.delete(`https://car-sale-web-server.vercel.app/delete-cars/${car._id}`)
+                    .then(res => {
+                        
+                        if(res.data.deletedCount){
+                            
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "Your Car has been delete",
+                                showConfirmButton: false,
+                                timer: 1500
+                                });
+                            const newDataAfterDelete = carData.filter(item => item._id != car._id);
+                            setCarData(newDataAfterDelete);
+                        }
+                    })
+                    .then(err => console.log(err))
+                }
+                catch(error){
                     
-                    if(res.data.deletedCount){
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "Your Car has been delete",
-                            showConfirmButton: false,
-                            timer: 1500
-                            });
-                        const newDataAfterDelete = carData.filter(item => item._id != car._id);
-                        setCarData(newDataAfterDelete);
-                    }
-                })
-                .then(err => console.log(err))
+                    console.log(error);
+                    Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Oops...",
+                    text: "something went wrong",
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+
+                    navigate('/available-cars');
+                }
+               
             }
             });
         
@@ -122,11 +161,34 @@ const MyCars = () => {
     }
 
     const handleSortMyCars = async(sortQuery) => {
-        console.log(sortQuery);
-        const response = await fetch(`https://car-sale-web-server.vercel.app/myCars/${user.uid}?sort=${sortQuery}`);
-        const data = await response.json();
-        console.log(data);
-        setCarData(data);
+        const token = user.accessToken;
+        
+        try{
+            
+            const response = await fetch(`https://car-sale-web-server.vercel.app/myCars/${user.uid}?sort=${sortQuery}`,{
+                headers: {
+                   authorization: `Bearer ${token}`,
+                }
+            });
+            const data = await response.json();
+            setCarData(data);
+            
+        }
+        catch(error){
+            
+            console.log(error);
+            Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Oops...",
+            text: "something went wrong",
+            showConfirmButton: false,
+            timer: 1500
+            });
+
+            navigate('/available-cars');
+        }
+        
     }
 
     const handleDateTime = (dateTime) => {
@@ -147,7 +209,7 @@ const MyCars = () => {
     
 
     return (
-        <Suspense fallback={<Loading></Loading>}>
+        
         <div>
             <p className='mt-12 text-4xl xl:text-6xl text-center font-bold'>My Cars</p>
             
@@ -324,7 +386,7 @@ const MyCars = () => {
 
 
         </div>
-        </Suspense>
+        
     );
 };
 

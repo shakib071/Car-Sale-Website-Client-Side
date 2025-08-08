@@ -30,22 +30,38 @@ const AddCar = () => {
     const addCarDataToDatabase = (carData) => {
         console.log(carData);
 
-        axios.post('https://car-sale-web-server.vercel.app/addCar',carData)
-        .then(res => {
-            if(res.data.insertedId){
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Your Car has been added",
-                    showConfirmButton: false,
-                    timer: 1500
-                    });
+        try{
+            axios.post('https://car-sale-web-server.vercel.app/addCar',carData)
+            .then(res => {
+                if(res.data.insertedId){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your Car has been added",
+                        showConfirmButton: false,
+                        timer: 1500
+                        });
 
-                navigate(`/my-cars/${user.uid}`);
-            }
-            
-        })
-        .catch(error => console.log(error));
+                    navigate(`/my-cars/${user.uid}`);
+                }
+                
+            })
+            .catch(error => console.log(error));
+        }
+        catch(error){
+            console.log(error);
+            Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Oops...",
+            text: "something went wrong",
+            showConfirmButton: false,
+            timer: 1500
+            });
+
+            navigate('/available-cars');
+        }
+        
     }
 
     const handleAddCarForm = (e) => {

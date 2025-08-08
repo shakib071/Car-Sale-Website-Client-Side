@@ -32,7 +32,7 @@ const AvailableCars = () => {
 
     const handleSortCar = async(sortQuery) => {
         
-        console.log(sortQuery);
+        // console.log(sortQuery);
 
         const response = await fetch(`https://car-sale-web-server.vercel.app/allCars?sort=${sortQuery}`);
         const data = await response.json();
