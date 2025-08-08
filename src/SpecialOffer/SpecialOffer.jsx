@@ -26,7 +26,7 @@ export default function SpecialOffer() {
 
   return (
     <div className='mt-16'>
-        <p className='mb-10 text-center text-3xl font-bold '>Special Offer</p>
+        <p className='mb-10 text-center text-3xl lg:text-5xl font-bold '>Special Offer</p>
       <Swiper
         dir="rtl"
         loop={true}
@@ -65,11 +65,11 @@ export default function SpecialOffer() {
                 <SwiperSlide className='hover:scale-105 transition-transform duration-300' key={off.id}>  <motion.div
                     animate={{ x: [0,10,0] , y: [0, -10, 10,0] }}
                     transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                    className="md:w-100 h-40 py-50  bg-gradient-to-b from-green-400 to-blue-500  rounded-xl flex items-center justify-center text-white font-bold text-lg"
+                    className="md:w-110 lg:w-130 h-50 py-50 md:py-60 lg:py-50 bg-gradient-to-b from-green-400 to-blue-500  rounded-xl flex items-center justify-center text-white font-bold text-lg"
                     >
                         <div >
                             <div>
-                                <img className='px-2' src={off.image} alt="car image" />
+                                <img className='px-2 ' src={off.image} alt="car image" />
                             </div>
                             <p className='text-[23px]'>{off.title}</p>
                             <p><span className='text-[#d41c3bdb]'>Price per Day  </span>- {off.price_per_day}</p>

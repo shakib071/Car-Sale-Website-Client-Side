@@ -35,7 +35,7 @@ const Test = () => {
 
   return (
     <div>
-        <p className='mt-15 mb-15 text-center text-3xl font-bold'>Promotion</p>
+        <p className='mt-15 mb-15 text-center text-3xl lg:text-5xl font-bold'>Promotion</p>
         <div className=" promo-banner winter-theme">
         <div>
             {snow}
@@ -47,8 +47,8 @@ const Test = () => {
             <div className='flex justify-center'>
                 <Lottie className='w-100 ' animationData={wheelAnimation} loop={true} />
             </div>
-            <h2 className='text-2xl'>WINTER TIRE PACKAGE <span className="text-[#1bf407] text-3xl font-bold"><br />30% OFF</span></h2>
-            <p className='text-xl text-[#e5e907]'>Get your car winter-ready with premium tires + free installation</p>
+            <h2 className='text-2xl lg:text-4xl'>WINTER TIRE PACKAGE <span className="text-[#1bf407] text-5xl font-bold"><br />30% OFF</span></h2>
+            <p className='text-xl lg:text-2xl text-[#e5e907]'>Get your car winter-ready with premium tires + free installation</p>
             
         </div>
         

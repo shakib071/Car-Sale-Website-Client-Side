@@ -12,8 +12,8 @@ const Footer = () => {
         <div className='mt-20 flex flex-col items-center gap-4 bg-white py-5 sm:py-10 shadow-md rounded-t-3xl'>
            
             <div className='flex justify-center items-center gap-3 cursor-pointer'>
-                <p><img className='w-7 h-7 md:w-15 md:h-15 2xl:w-20 2xl:h-20' src={logo} alt="logo" /></p>
-                <p className='text-3xl md:text-4xl font-bold'>Carden</p>
+                <p><img className='w-7 h-7 md:w-15 md:h-15 lg:w-20 lg:h-20 2xl:w-20 2xl:h-20' src={logo} alt="logo" /></p>
+                <p className='text-3xl md:text-4xl lg:text-5xl font-bold'>Carden</p>
             </div>
             
 

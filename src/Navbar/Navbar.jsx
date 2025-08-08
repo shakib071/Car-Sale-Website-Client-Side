@@ -38,13 +38,13 @@ const Navbar = () => {
                 <div>
                     <NavLink to='/'>
                         <div className='flex items-center gap-1'>
-                            <img className='w-13 sm:w-15 md:w-18 lg:w-24 mt-2' src={logoImg} alt="logo"/>
-                            <p className='text-3xl lg:text-4xl font-bold text-[#fc03a1]'>Carden</p>
+                            <img className='w-13 sm:w-15 md:w-16 lg:w-24 mt-2' src={logoImg} alt="logo"/>
+                            <p className='text-3xl md:text-2xl lg:text-4xl font-bold text-[#fc03a1]'>Carden</p>
                         </div>
                     </NavLink>
                     
                 </div>
-                <div className='hidden md:flex gap-2 sm:gap-6 md:gap-3 lg:gap-6 items-center text-[11px] sm:text-lg md:text-xl lg:text-2xl xl:text-[29px] 2xl:text-[33px]'>
+                <div className='hidden md:flex gap-2 sm:gap-6 md:gap-4 lg:gap-6 items-center text-[11px] sm:text-lg md:text-lg lg:text-2xl xl:text-[29px] 2xl:text-[33px]'>
                     <NavLink to='/'><p className='font-semibold '>Home</p></NavLink>
                     <NavLink to='available-cars'><p className='font-semibold'>Available Cars</p></NavLink>
                     {
