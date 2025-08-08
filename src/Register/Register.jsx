@@ -1,6 +1,6 @@
 import React, { use, useState } from 'react';
 import googleLogo from '../assets/google.png';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link,  useNavigate } from 'react-router';
 import Lottie from "lottie-react";
 import registerAnimation from './register.json';
 import { AuthContext } from '../AuthProvider/AuthContext';
@@ -12,7 +12,7 @@ const Register = () => {
     const [error,setError] = useState('');
     const {createUser,updateUserData,setUser,setLoading,handleGoogleLogin} = use(AuthContext);
     const navigate = useNavigate();
-    const location = useLocation();
+    
 
 
     const handleRegister = (e) => {
@@ -45,9 +45,8 @@ const Register = () => {
             updateUserData({displayName : name, photoURL : photo})
             .then(()=>{
                 setUser({...user,displayName : name, photoURL : photo});
-
-
-                navigate(`${location.state ? location.state : '/'}`);
+                setLoading(false);
+                navigate('/');
                 
             })
             .catch((error)=> {

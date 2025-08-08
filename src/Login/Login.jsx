@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import Lottie from "lottie-react";
 import loginAnimation from "./Login.json";
 import googleLogo from '../assets/google.png'
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link,  useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -10,13 +10,13 @@ const Login = () => {
 
     const {login,setLoading,handleGoogleLogin} = use(AuthContext);
     const navigate = useNavigate();
-    const location = useLocation();
+    
 
     const handleGoogleSignin = () => {
             
         handleGoogleLogin()
         .then(()=>{
-            navigate(`${location.state ? location.state : '/'}`);
+            navigate('/');
         })
         .catch((error)=>{
             setLoading(false);
