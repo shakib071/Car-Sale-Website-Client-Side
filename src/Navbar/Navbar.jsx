@@ -72,9 +72,9 @@ const Navbar = () => {
 
                 </div>
 
-                <div className="md:hidden dropdown dropdown-center">
+                <div className="md:hidden  dropdown dropdown-bottom dropdown-end">
                     <div tabIndex={0} role="button" className="btn m-1"><GiHamburgerMenu className='bg-white text-2xl'/></div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box sm:text-lg z-1 w-52 p-2 shadow-sm">
                         <li><NavLink to='/'><p className='font-semibold '>Home</p></NavLink></li>
                         <li><NavLink to='available-cars'><p className='font-semibold'>Available Cars</p></NavLink></li>
                         {
@@ -95,7 +95,7 @@ const Navbar = () => {
                                 user && <li><NavLink><p onClick={handleLogout} className='font-semibold'>Logout</p></NavLink></li>
                             }
                     </ul>
-                    </div>
+                </div>
             </div>
 
         </div>

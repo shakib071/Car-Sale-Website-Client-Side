@@ -9,7 +9,7 @@ import { FaReddit } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className='mt-20 flex flex-col items-center gap-4 bg-white py-5 shadow-md rounded-t-3xl'>
+        <div className='mt-20 flex flex-col items-center gap-4 bg-white py-5 sm:py-10 shadow-md rounded-t-3xl'>
            
             <div className='flex justify-center items-center gap-3 cursor-pointer'>
                 <p><img className='w-7 h-7 md:w-15 md:h-15 2xl:w-20 2xl:h-20' src={logo} alt="logo" /></p>
