@@ -79,13 +79,13 @@ const Register = () => {
     }
 
     return (
-        <div className=' flex justify-center items-center mt-7'>
+        <div className=' flex flex-col md:flex-row justify-center items-center mt-7'>
             
             <div>
-                <Lottie className='w-100' animationData={registerAnimation} loop={true} />
+                <Lottie className='w-100 sm:w-130 md:w-80 lg:w-110 xl:w-130' animationData={registerAnimation} loop={true} />
             </div>
 
-            <div className='bg-green-400 px-15 py-11 rounded-2xl shadow-2xl font-semibold'>
+            <div className='bg-green-400 mx-2 px-8 py-11 sm:px-18 md:px-10 md:py-5 lg:px-14 lg:py-10 xl:px-18 xl:py-15 rounded-2xl shadow-2xl font-semibold'>
                 <p className='text-center text-3xl text-white'>Register Your Account</p>
                 <form onSubmit={handleRegister} className='' >
                     <div className='flex mt-4 flex-col'>

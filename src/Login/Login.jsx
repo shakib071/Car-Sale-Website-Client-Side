@@ -45,13 +45,13 @@ const Login = () => {
     }
     
     return (
-        <div className='mt-10 flex justify-center items-center'>
+        <div className='mt-10 flex flex-col md:flex-row justify-center items-center'>
             
             <div>
-                <Lottie className='w-100' animationData={loginAnimation} loop={true} />
+                <Lottie className='w-100 sm:w-130 md:w-80 lg:w-110 xl:w-130' animationData={loginAnimation} loop={true} />
             </div>
 
-            <div className='bg-green-400 p-11 rounded-2xl shadow-2xl'>
+            <div className='bg-green-400 mx-2 p-11 sm:p-17 md:p-8 lg:p-15 xl:p-18 rounded-2xl shadow-2xl'>
                 <p className='text-center text-3xl text-white font-semibold'>Login Your Account</p>
                 
                 <form onSubmit={handleLogin} className='' >
