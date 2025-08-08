@@ -16,7 +16,7 @@ const RecentListing = () => {
         <div className='mt-15'>
             <p className='text-4xl lg:text-5xl text-center font-bold'>Recent Listing</p>
 
-            <div className='mt-13 grid grid-cols-1 sm:grid-cols-2 gap-7 px-5'>
+            <div className='mt-13 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7 px-5'>
 
             {
                 listData.map(list => (
